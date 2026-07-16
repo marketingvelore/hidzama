@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F5EF;color:#2E3830;font-family:'Figtree',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2E3830;transition:color .25s}a:hover{color:#6F8877}
+::selection{background:#6F8877;color:#F7F5EF}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+</style>
+<script src="image-slot.js"></script>
+</helmet>
+<nav data-screen-label="O Maji" style="display:flex;justify-content:space-between;align-items:center;padding:16px 40px;position:sticky;top:0;background:rgba(247,245,239,0.85);backdrop-filter:blur(12px);border-bottom:1px solid #E3DDCE;z-index:50">
+  <a href="Pocetna.dc.html" style="text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600">Maja Ratković <em style="color:#6F8877">· fizio &amp; hidžama</em></a>
+  <div style="display:flex;gap:24px;align-items:center;font-size:15px">
+    <a href="Pocetna.dc.html" style="text-decoration:none">Početna</a>
+    <a href="Usluge.dc.html" style="text-decoration:none">Usluge</a>
+    <a href="O-Maji.dc.html" style="text-decoration:none;color:#6F8877;font-weight:500">O Maji</a>
+    <a href="Galerija.dc.html" style="text-decoration:none">Galerija</a>
+    <a href="Kontakt.dc.html" style="text-decoration:none">Kontakt</a>
+    <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#3C4A40;color:#F7F5EF;padding:10px 20px;border-radius:999px;transition:background .3s,transform .3s" style-hover="background:#6F8877;color:#F7F5EF;transform:translateY(-2px)">Zakaži · 066 366 217</a>
+  </div>
+</nav>
+<section style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:56px;padding:64px 40px;align-items:start">
+  <div style="position:sticky;top:100px;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both">
+    <div style="height:480px;border-radius:200px 200px 24px 24px;overflow:hidden;transition:transform .5s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.015)">
+      <image-slot id="maja-portret" shape="rect" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200&auto=format&fit=crop" credit="Photo by Toa Heftiba on Unsplash" credit-href="https://unsplash.com/@heftiba" placeholder="Portret Maje"></image-slot>
+    </div>
+    <div style="display:flex;justify-content:space-between;gap:16px;padding-top:14px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8A9184">
+      <span>Maja Ratković</span>
+      <span>Fizioterapeut · Trebinje</span>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:30px;max-width:620px">
+    <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4vw,54px);line-height:1.08;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) both">Drago mi je, <em style="color:#6F8877">ja sam Maja</em>.</h1>
+    <p style="margin:0;font-size:17px;line-height:1.75;color:#5A6459;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .12s both">Fizioterapeut sam iz Trebinja. U ovaj posao nisam ušla slučajno — oduvijek me zanimalo kako tijelo radi, a još više zašto prestane da radi kako treba. Kroz masažu sam našla ono što mi ordinacija nikad nije dala: vrijeme da čovjeka stvarno saslušam, i rukama i ušima.</p>
+    <p style="margin:0;font-size:17px;line-height:1.75;color:#5A6459;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .2s both">Kod mene ne postoji tretman „po šablonu“. Prije svakog termina razgovaramo — šta te boli, kako spavaš, čime se baviš — i onda radim ono što tvom tijelu tog dana treba. Nekad je to duboka sportska masaža, nekad sat mira, nekad hidžama.</p>
+    <blockquote style="margin:0;border-top:1px solid #E3DDCE;border-bottom:1px solid #E3DDCE;padding:26px 0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(22px,2.3vw,28px);line-height:1.4">„Ne liječim ja — tijelo se liječi samo. Ja mu samo <em style="color:#6F8877">sklonim prepreke</em> s puta.“</blockquote>
+    <p style="margin:0;font-size:17px;line-height:1.75;color:#5A6459">Hidžamu radim jer sam se uvjerila koliko pomaže tamo gdje klasične metode stanu — uvijek sterilno, uz jednokratni pribor i bez žurbe. A Trebinje? Najljepši grad za oporavak: dođeš zbog masaže, ostaneš zbog mira.</p>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #E3DDCE">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:16px 0;border-bottom:1px solid #E3DDCE;font-size:15px;transition:padding .3s" style-hover="padding:16px 0 16px 10px">
+        <span style="color:#8A9184">Pristup</span><span>Medicinsko-terapijski, individualan</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:16px 0;border-bottom:1px solid #E3DDCE;font-size:15px;transition:padding .3s" style-hover="padding:16px 0 16px 10px">
+        <span style="color:#8A9184">Tretmani</span><span>7 vrsta masaža + hidžama</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:16px 0;border-bottom:1px solid #E3DDCE;font-size:15px;transition:padding .3s" style-hover="padding:16px 0 16px 10px">
+        <span style="color:#8A9184">Termini</span><span>Po dogovoru — poruka je dovoljna</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:16px 0;border-bottom:1px solid #E3DDCE;font-size:15px;transition:padding .3s" style-hover="padding:16px 0 16px 10px">
+        <span style="color:#8A9184">Gdje</span><span>Trebinje</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#6F8877;color:#F7F5EF;padding:15px 28px;border-radius:999px;font-size:16px;transition:background .3s,transform .3s,box-shadow .3s" style-hover="background:#3C4A40;color:#F7F5EF;transform:translateY(-2px);box-shadow:0 10px 24px rgba(46,56,48,0.16)">Zakaži termin ↗</a>
+      <a href="Usluge.dc.html" style="text-decoration:none;border:1px solid #C9C2B2;padding:14px 28px;border-radius:999px;font-size:16px;transition:background .3s,transform .3s" style-hover="background:#EFEAE0;transform:translateY(-2px)">Pogledaj usluge</a>
+    </div>
+  </div>
+</section>
+<footer style="background:#2E3830;color:#F1EEE6;padding:64px 40px 32px;display:flex;flex-direction:column;gap:48px">
+  <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,3.8vw,52px);line-height:1.05">Vidimo se <em style="color:#9DB4A0">u Trebinju</em>.</div>
+  <div style="display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;font-size:15px">
+    <div style="display:flex;gap:22px;flex-wrap:wrap">
+      <a href="Pocetna.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Početna</a>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Usluge</a>
+      <a href="O-Maji.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">O Maji</a>
+      <a href="Galerija.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Galerija</a>
+      <a href="Kontakt.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Kontakt</a>
+    </div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap">
+      <a href="tel:+38766366217" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">066 366 217</a>
+      <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">@fizio_masaze_hidzama_trebinje</a>
+    </div>
+    <div style="color:#8C948A">© 2026 Fizio masaže &amp; hidžama · Maja Ratković · Trebinje</div>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>

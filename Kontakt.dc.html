@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F5EF;color:#2E3830;font-family:'Figtree',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2E3830;transition:color .25s}a:hover{color:#6F8877}
+::selection{background:#6F8877;color:#F7F5EF}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<nav data-screen-label="Kontakt" style="display:flex;justify-content:space-between;align-items:center;padding:16px 40px;position:sticky;top:0;background:rgba(247,245,239,0.85);backdrop-filter:blur(12px);border-bottom:1px solid #E3DDCE;z-index:50">
+  <a href="Pocetna.dc.html" style="text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600">Maja Ratković <em style="color:#6F8877">· fizio &amp; hidžama</em></a>
+  <div style="display:flex;gap:24px;align-items:center;font-size:15px">
+    <a href="Pocetna.dc.html" style="text-decoration:none">Početna</a>
+    <a href="Usluge.dc.html" style="text-decoration:none">Usluge</a>
+    <a href="O-Maji.dc.html" style="text-decoration:none">O Maji</a>
+    <a href="Galerija.dc.html" style="text-decoration:none">Galerija</a>
+    <a href="Kontakt.dc.html" style="text-decoration:none;color:#6F8877;font-weight:500">Kontakt</a>
+    <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#3C4A40;color:#F7F5EF;padding:10px 20px;border-radius:999px;transition:background .3s,transform .3s" style-hover="background:#6F8877;color:#F7F5EF;transform:translateY(-2px)">Zakaži · 066 366 217</a>
+  </div>
+</nav>
+<section style="padding:64px 40px 56px;display:flex;flex-direction:column;gap:28px;border-bottom:1px solid #E3DDCE">
+  <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,4.6vw,64px);line-height:1.05;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) both">Javi se — <em style="color:#6F8877">poruka je dovoljna</em>.</h1>
+  <a href="tel:+38766366217" style="text-decoration:none;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.6vw,48px);line-height:1;align-self:flex-start;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .12s both" style-hover="color:#6F8877">066 / 366 - 217</a>
+  <p style="margin:0;max-width:540px;font-size:17px;line-height:1.65;color:#5A6459;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .2s both">Termini su po dogovoru — pošalji poruku na Viber ili Instagram, napiši šta te muči i kad ti odgovara, a ja predložim tretman i termin.</p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .28s both">
+    <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#6F8877;color:#F7F5EF;padding:15px 28px;border-radius:999px;font-size:16px;transition:background .3s,transform .3s,box-shadow .3s" style-hover="background:#3C4A40;color:#F7F5EF;transform:translateY(-2px);box-shadow:0 10px 24px rgba(46,56,48,0.16)">Piši na Viber ↗</a>
+    <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" style="text-decoration:none;border:1px solid #C9C2B2;padding:14px 28px;border-radius:999px;font-size:16px;transition:background .3s,transform .3s" style-hover="background:#EFEAE0;transform:translateY(-2px)">Instagram DM ↗</a>
+  </div>
+</section>
+<section style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid #E3DDCE">
+  <div style="padding:56px 40px;display:flex;flex-direction:column;gap:24px;border-right:1px solid #E3DDCE">
+    <div style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#8A9184">· Česta pitanja</div>
+    <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+      <div onClick="{{ f.toggle }}" style="border-bottom:1px solid #E3DDCE;padding:18px 0;cursor:pointer;display:flex;flex-direction:column;gap:12px;transition:padding .3s" style-hover="padding:18px 0 18px 8px">
+        <div style="display:flex;justify-content:space-between;gap:24px;align-items:baseline">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:21px">{{ f.q }}</span>
+          <span style="font-family:'Cormorant Garamond',serif;color:#6F8877;font-size:24px;flex:none">{{ f.sign }}</span>
+        </div>
+        <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0;font-size:15px;line-height:1.7;color:#5A6459;max-width:520px;animation:fadeUp .45s cubic-bezier(.22,1,.36,1) both">{{ f.a }}</p>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+  <div style="display:flex;flex-direction:column">
+    <div style="padding:56px 40px 26px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#8A9184">· Gdje smo</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(22px,2.4vw,30px);line-height:1.25">Trebinje — tačnu adresu dobiješ <em style="color:#6F8877">uz potvrdu termina</em>.</div>
+    </div>
+    <div style="flex:1;min-height:360px;margin:0 40px 40px;border-radius:20px;overflow:hidden;border:1px solid #E3DDCE">
+      <iframe src="https://maps.google.com/maps?q=Trebinje,+Bosna+i+Hercegovina&z=14&output=embed" style="width:100%;height:100%;border:0;display:block" title="Mapa — Trebinje"></iframe>
+    </div>
+  </div>
+</section>
+<footer style="background:#2E3830;color:#F1EEE6;padding:64px 40px 32px;display:flex;flex-direction:column;gap:48px">
+  <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,3.8vw,52px);line-height:1.05">Vidimo se <em style="color:#9DB4A0">u Trebinju</em>.</div>
+  <div style="display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;font-size:15px">
+    <div style="display:flex;gap:22px;flex-wrap:wrap">
+      <a href="Pocetna.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Početna</a>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Usluge</a>
+      <a href="O-Maji.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">O Maji</a>
+      <a href="Galerija.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Galerija</a>
+      <a href="Kontakt.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Kontakt</a>
+    </div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap">
+      <a href="tel:+38766366217" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">066 366 217</a>
+      <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">@fizio_masaze_hidzama_trebinje</a>
+    </div>
+    <div style="color:#8C948A">© 2026 Fizio masaže &amp; hidžama · Maja Ratković · Trebinje</div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: 0 };
+  renderVals() {
+    const data = [
+      {q: 'Kako da zakažem termin?', a: 'Pošalji poruku na Viber (066 366 217) ili Instagram DM. Napiši šta te muči i kad ti odgovara — odgovaram brzo i dogovorimo sve.'},
+      {q: 'Šta je hidžama?', a: 'Tradicionalna metoda tretmana vakuumskim čašicama uz kontrolisane, površinske zareze. Radim je sterilno, isključivo jednokratnim priborom, uz procjenu i razgovor prije tretmana.'},
+      {q: 'Da li masaža boli?', a: 'Zavisi od tretmana. Relax masaža ne boli nikad; kod terapijske i sportske radim do granice ugodnog — ti dišeš, ja pratim. Uvijek mi možeš reći da smanjim pritisak.'},
+      {q: 'Koliko traje tretman?', a: 'Od 30 minuta (stopala) do 75 minuta (vulkansko kamenje). Tačno trajanje dogovorimo prema tretmanu i tvom stanju.'},
+      {q: 'Kako da se pripremim za hidžamu?', a: 'Lagan obrok 2–3 sata prije, dosta vode taj dan, a poslije tretmana miran ostatak dana bez teškog treninga.'},
+      {q: 'Da li mogu da poklonim tretman?', a: 'Naravno — javi se porukom i dogovorimo poklon-termin. Masaža vulkanskim kamenjem je najčešći izbor.'}
+    ];
+    const faqs = data.map((f, i) => ({
+      ...f,
+      open: this.state.open === i,
+      sign: this.state.open === i ? '–' : '+',
+      toggle: () => this.setState(s => ({open: s.open === i ? -1 : i}))
+    }));
+    return {faqs};
+  }
+}
+</script>
+</body>
+</html>

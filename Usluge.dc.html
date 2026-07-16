@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F5EF;color:#2E3830;font-family:'Figtree',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2E3830;transition:color .25s}a:hover{color:#6F8877}
+::selection{background:#6F8877;color:#F7F5EF}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<nav data-screen-label="Usluge" style="display:flex;justify-content:space-between;align-items:center;padding:16px 40px;position:sticky;top:0;background:rgba(247,245,239,0.85);backdrop-filter:blur(12px);border-bottom:1px solid #E3DDCE;z-index:50">
+  <a href="Pocetna.dc.html" style="text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600">Maja Ratković <em style="color:#6F8877">· fizio &amp; hidžama</em></a>
+  <div style="display:flex;gap:24px;align-items:center;font-size:15px">
+    <a href="Pocetna.dc.html" style="text-decoration:none">Početna</a>
+    <a href="Usluge.dc.html" style="text-decoration:none;color:#6F8877;font-weight:500">Usluge</a>
+    <a href="O-Maji.dc.html" style="text-decoration:none">O Maji</a>
+    <a href="Galerija.dc.html" style="text-decoration:none">Galerija</a>
+    <a href="Kontakt.dc.html" style="text-decoration:none">Kontakt</a>
+    <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#3C4A40;color:#F7F5EF;padding:10px 20px;border-radius:999px;transition:background .3s,transform .3s" style-hover="background:#6F8877;color:#F7F5EF;transform:translateY(-2px)">Zakaži · 066 366 217</a>
+  </div>
+</nav>
+<header style="padding:56px 40px 44px;display:flex;flex-direction:column;gap:18px;border-bottom:1px solid #E3DDCE">
+  <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,4.4vw,60px);line-height:1.05;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) both">Usluge <em style="color:#6F8877">&amp; cjenovnik</em></h1>
+  <p style="margin:0;max-width:600px;font-size:17px;line-height:1.65;color:#5A6459;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .12s both">Cijene su okvirne — konačna zavisi od procjene stanja i trajanja tretmana. Sve dogovaramo porukom prije termina, bez iznenađenja.</p>
+</header>
+<section style="display:flex;flex-direction:column">
+  <article style="display:grid;grid-template-columns:1fr 1.2fr;gap:44px;padding:44px 40px;border-bottom:1px solid #E3DDCE;transition:background .35s;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% entry 30%" style-hover="background:#F2EFE7">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:19px">01</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1.1">Medicinsko-terapijska masaža</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#5A6459">Za bolove u leđima, vratu i ramenima — ono što ti sjedeći posao i stres godinama slažu na pleća. Ciljano radim na problematičnim tačkama, uz fizioterapeutsku procjenu prije svakog tretmana.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:14px">
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">30–45 min</span>
+        <sc-if value="{{ prikaziCijene }}" hint-placeholder-val="{{ true }}"><span style="background:#3C4A40;color:#F7F5EF;border-radius:999px;padding:8px 15px">od 30 KM</span></sc-if>
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">bol u leđima i vratu</span>
+      </div>
+    </div>
+  </article>
+  <article style="display:grid;grid-template-columns:1fr 1.2fr;gap:44px;padding:44px 40px;border-bottom:1px solid #E3DDCE;transition:background .35s;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% entry 30%" style-hover="background:#F2EFE7">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:19px">02</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1.1">Relax masaža</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#5A6459">Sat vremena u kojem niko ništa ne traži od tebe. Lagani, ujednačeni pokreti koji smiruju nervni sistem — najčešći komentar poslije: „Kao da sam spavao tri noći.“</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:14px">
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">60 min</span>
+        <sc-if value="{{ prikaziCijene }}" hint-placeholder-val="{{ true }}"><span style="background:#3C4A40;color:#F7F5EF;border-radius:999px;padding:8px 15px">od 35 KM</span></sc-if>
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">stres i nesanica</span>
+      </div>
+    </div>
+  </article>
+  <article style="display:grid;grid-template-columns:1fr 1.2fr;gap:44px;padding:44px 40px;border-bottom:1px solid #E3DDCE;transition:background .35s;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% entry 30%" style-hover="background:#F2EFE7">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:19px">03</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1.1">Sportska masaža</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#5A6459">Dublji, intenzivniji rad za mišiće pod opterećenjem — prije ili poslije treninga, priprema ili oporavak. Skraćuje vrijeme regeneracije i smanjuje rizik od povreda.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:14px">
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">45–60 min</span>
+        <sc-if value="{{ prikaziCijene }}" hint-placeholder-val="{{ true }}"><span style="background:#3C4A40;color:#F7F5EF;border-radius:999px;padding:8px 15px">od 40 KM</span></sc-if>
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">sportisti i rekreativci</span>
+      </div>
+    </div>
+  </article>
+  <article style="display:grid;grid-template-columns:1fr 1.2fr;gap:44px;padding:44px 40px;border-bottom:1px solid #E3DDCE;transition:background .35s;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% entry 30%" style-hover="background:#F2EFE7">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:19px">04</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1.1">Masaža vulkanskim kamenjem</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#5A6459">Toplo vulkansko kamenje polako otpušta i najdublje napetosti — toplota radi ono što ruke same ne mogu. Tretman koji klijenti najčešće poklanjaju jedni drugima.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:14px">
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">60–75 min</span>
+        <sc-if value="{{ prikaziCijene }}" hint-placeholder-val="{{ true }}"><span style="background:#3C4A40;color:#F7F5EF;border-radius:999px;padding:8px 15px">od 45 KM</span></sc-if>
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">duboka relaksacija</span>
+      </div>
+    </div>
+  </article>
+  <article style="display:grid;grid-template-columns:1fr 1.2fr;gap:44px;padding:44px 40px;border-bottom:1px solid #E3DDCE;transition:background .35s;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% entry 30%" style-hover="background:#F2EFE7">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:19px">05</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1.1">Masaža stopala</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#5A6459">Pola sata za dio tijela koji nosi sve ostale. Odlična poslije dugog stajanja, hodanja ili uskih cipela — a mnogi kažu da opusti cijelo tijelo.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:14px">
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">30 min</span>
+        <sc-if value="{{ prikaziCijene }}" hint-placeholder-val="{{ true }}"><span style="background:#3C4A40;color:#F7F5EF;border-radius:999px;padding:8px 15px">od 20 KM</span></sc-if>
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">umorna stopala</span>
+      </div>
+    </div>
+  </article>
+  <article style="display:grid;grid-template-columns:1fr 1.2fr;gap:44px;padding:44px 40px;border-bottom:1px solid #E3DDCE;transition:background .35s;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% entry 30%" style-hover="background:#F2EFE7">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:19px">06</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1.1">Anticelulit masaža</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#5A6459">Intenzivna masaža koja pokreće cirkulaciju i limfu. Najbolje djeluje u seriji tretmana — dogovorićemo ritam koji ima smisla za tebe, bez nerealnih obećanja.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:14px">
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">30–45 min</span>
+        <sc-if value="{{ prikaziCijene }}" hint-placeholder-val="{{ true }}"><span style="background:#3C4A40;color:#F7F5EF;border-radius:999px;padding:8px 15px">od 25 KM</span></sc-if>
+        <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">serije tretmana</span>
+      </div>
+    </div>
+  </article>
+</section>
+<section style="background:#EFEAE0;padding:70px 40px;border-bottom:1px solid #E3DDCE;display:grid;grid-template-columns:1fr 1.2fr;gap:44px;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% entry 25%">
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:19px">07</div>
+    <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.2vw,44px);line-height:1.08">Hidžama <em style="color:#6F8877">— terapija vjekovima stara</em></h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:22px">
+    <p style="margin:0;font-size:16px;line-height:1.7;color:#5A6459">Hidžama je tradicionalna metoda tretmana vakuumskim čašicama uz kontrolisane, površinske zarezе — praktikuje se vjekovima na Balkanu i Bliskom istoku. Radim je sterilno, priborom za jednokratnu upotrebu, uz razgovor i procjenu prije tretmana.</p>
+    <p style="margin:0;font-size:16px;line-height:1.7;color:#5A6459">Klijenti je najčešće biraju kod hroničnih bolova, glavobolja i osjećaja „teškog“ tijela. Ako ti je prvi put — sve ti objasnim korak po korak, ništa se ne radi na brzinu.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:14px">
+      <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">45–60 min</span>
+      <sc-if value="{{ prikaziCijene }}" hint-placeholder-val="{{ true }}"><span style="background:#3C4A40;color:#F7F5EF;border-radius:999px;padding:8px 15px">od 40 KM</span></sc-if>
+      <span style="border:1px solid #D5CFC0;border-radius:999px;padding:7px 15px;color:#5A6459">sterilan jednokratni pribor</span>
+    </div>
+    <div style="border-top:1px solid #D5CFC0;padding-top:20px;display:flex;flex-direction:column;gap:8px;font-size:15px;color:#5A6459">
+      <div style="letter-spacing:0.16em;text-transform:uppercase;font-size:12px;color:#8A9184">Priprema za hidžamu</div>
+      <div>· Lagan obrok 2–3 sata prije tretmana</div>
+      <div>· Dosta vode taj dan</div>
+      <div>· Poslije tretmana — miran ostatak dana, bez teškog treninga</div>
+    </div>
+  </div>
+</section>
+<section style="padding:90px 40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:26px;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) both;animation-timeline:view();animation-range:entry 0% entry 40%">
+  <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.4vw,46px);line-height:1.12">Nisi siguran/na šta ti treba? <em style="color:#6F8877">Piši mi.</em></h2>
+  <p style="margin:0;font-size:17px;color:#5A6459">Opiši mi šta te muči — predložiću tretman i termin.</p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+    <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#6F8877;color:#F7F5EF;padding:15px 28px;border-radius:999px;font-size:16px;transition:background .3s,transform .3s,box-shadow .3s" style-hover="background:#3C4A40;color:#F7F5EF;transform:translateY(-2px);box-shadow:0 10px 24px rgba(46,56,48,0.16)">Viber · 066 366 217</a>
+    <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" style="text-decoration:none;border:1px solid #C9C2B2;padding:14px 28px;border-radius:999px;font-size:16px;transition:background .3s,transform .3s" style-hover="background:#EFEAE0;transform:translateY(-2px)">Instagram ↗</a>
+  </div>
+</section>
+<footer style="background:#2E3830;color:#F1EEE6;padding:64px 40px 32px;display:flex;flex-direction:column;gap:48px">
+  <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,3.8vw,52px);line-height:1.05">Vidimo se <em style="color:#9DB4A0">u Trebinju</em>.</div>
+  <div style="display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;font-size:15px">
+    <div style="display:flex;gap:22px;flex-wrap:wrap">
+      <a href="Pocetna.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Početna</a>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Usluge</a>
+      <a href="O-Maji.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">O Maji</a>
+      <a href="Galerija.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Galerija</a>
+      <a href="Kontakt.dc.html" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">Kontakt</a>
+    </div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap">
+      <a href="tel:+38766366217" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">066 366 217</a>
+      <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" style="color:#F1EEE6;text-decoration:none" style-hover="color:#9DB4A0">@fizio_masaze_hidzama_trebinje</a>
+    </div>
+    <div style="color:#8C948A">© 2026 Fizio masaže &amp; hidžama · Maja Ratković · Trebinje</div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;prikaziCijene&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Cjenovnik&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {prikaziCijene: this.props.prikaziCijene ?? true};
+  }
+}
+</script>
+</body>
+</html>

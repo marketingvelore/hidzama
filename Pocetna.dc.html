@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F5EF;color:#2E3830;font-family:'Figtree',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2E3830;transition:color .25s}a:hover{color:#6F8877}
+::selection{background:#6F8877;color:#F7F5EF}
+@keyframes rise{from{opacity:0;transform:translateY(22px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+<script src="image-slot.js"></script>
+</helmet>
+<nav data-screen-label="Početna" style="display:flex;justify-content:space-between;align-items:center;padding:16px 40px;position:sticky;top:0;background:rgba(247,245,239,0.85);backdrop-filter:blur(12px);border-bottom:1px solid #E3DDCE;z-index:50">
+  <a href="Pocetna.dc.html" style="text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600">Maja Ratković <em style="color:#6F8877">· fizio &amp; hidžama</em></a>
+  <div style="display:flex;gap:24px;align-items:center;font-size:15px">
+    <a href="Pocetna.dc.html" style="text-decoration:none;color:#6F8877;font-weight:500">Početna</a>
+    <a href="Usluge.dc.html" style="text-decoration:none">Usluge</a>
+    <a href="O-Maji.dc.html" style="text-decoration:none">O Maji</a>
+    <a href="Galerija.dc.html" style="text-decoration:none">Galerija</a>
+    <a href="Kontakt.dc.html" style="text-decoration:none">Kontakt</a>
+    <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#3C4A40;color:#F7F5EF;padding:10px 20px;border-radius:999px;transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#6F8877;color:#F7F5EF;transform:translateY(-2px)">Zakaži · 066 366 217</a>
+  </div>
+</nav>
+<section style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:48px;padding:56px 40px 72px;align-items:center">
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#8A9184;animation:rise .9s cubic-bezier(.22,1,.36,1) both">Fizio masaže &amp; hidžama — Trebinje</div>
+    <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(42px,4.8vw,68px);line-height:1.05;animation:rise .9s cubic-bezier(.22,1,.36,1) .12s both">Ruke koje znaju<br><em style="color:#6F8877;font-weight:500">gdje boli</em>.</h1>
+    <p style="margin:0;max-width:500px;font-size:17px;line-height:1.65;color:#5A6459;animation:rise .9s cubic-bezier(.22,1,.36,1) .24s both">Ja sam Maja — fizioterapeut. Bilo da te muče leđa, treninzi ili samo život, ovdje se dolazi po jedno: da izađeš lakši nego što si ušao.</p>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;animation:rise .9s cubic-bezier(.22,1,.36,1) .36s both">
+      <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#6F8877;color:#F7F5EF;padding:15px 28px;border-radius:999px;font-size:16px;transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s" style-hover="background:#3C4A40;color:#F7F5EF;transform:translateY(-3px);box-shadow:0 14px 28px rgba(46,56,48,0.18)">Piši mi na Viber ↗</a>
+      <a href="Usluge.dc.html" style="text-decoration:none;border:1px solid #C9C2B2;padding:14px 28px;border-radius:999px;font-size:16px;transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;transform:translateY(-3px)">Usluge i cijene</a>
+    </div>
+  </div>
+  <div style="position:relative;justify-self:end;width:min(400px,100%);animation:rise 1s cubic-bezier(.22,1,.36,1) .3s both">
+    <div style="height:440px;border-radius:200px 200px 24px 24px;overflow:hidden;transition:transform .6s cubic-bezier(.22,1,.36,1),box-shadow .6s" style-hover="transform:translateY(-4px);box-shadow:0 24px 48px rgba(46,56,48,0.14)">
+      <image-slot id="maja-hero" shape="rect" src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=1200&auto=format&fit=crop" credit="Photo by Conscious Design on Unsplash" credit-href="https://unsplash.com/@conscious_design" placeholder="Fotografija Maje ili studija"></image-slot>
+    </div>
+    <div style="position:absolute;bottom:-24px;left:-40px">
+      <a href="tel:+38766366217" style="text-decoration:none;display:block;transition:transform .45s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.07) rotate(6deg)">{{ badge }}</a>
+    </div>
+  </div>
+</section>
+<div style="background:#3C4A40;color:#F7F5EF;padding:14px 0;overflow:hidden">{{ marquee }}</div>
+<section style="padding:84px 40px;display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:40px">
+  <div style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#8A9184" data-reveal="0">· Upoznaj me</div>
+  <div style="display:flex;flex-direction:column;gap:30px;max-width:820px" data-reveal="1">
+    <p style="margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.6vw,34px);line-height:1.35;font-weight:500">„Zdravo, ja sam Maja. Vjerujem da tijelo pamti sve — stres, treninge, godine za ekranom. Moj posao je da mu pomognem <em style="color:#6F8877">da zaboravi</em>.“</p>
+    <a href="O-Maji.dc.html" style="text-decoration:none;font-size:16px;border-bottom:1px solid #C9C2B2;align-self:flex-start;padding-bottom:4px;transition:color .25s,border-color .25s" style-hover="color:#6F8877;border-bottom:1px solid #6F8877">Upoznaj Maju →</a>
+  </div>
+</section>
+<section style="padding:0 40px 90px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:30px;flex-wrap:wrap" data-reveal="0">
+    <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.2vw,44px)">Šta radim</h2>
+    <div style="font-size:14px;color:#8A9184">Okvirne cijene — konačna zavisi od procjene i trajanja.</div>
+  </div>
+  <div style="display:flex;flex-direction:column" data-reveal="1">
+    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">01</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Medicinsko-terapijska masaža</span>
+      <span style="font-size:14px;color:#8A9184">30–45 min</span>
+      <span style="font-size:15px;text-align:right">od 30 KM</span>
+    </a>
+    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">02</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Relax masaža</span>
+      <span style="font-size:14px;color:#8A9184">60 min</span>
+      <span style="font-size:15px;text-align:right">od 35 KM</span>
+    </a>
+    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">03</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Sportska masaža</span>
+      <span style="font-size:14px;color:#8A9184">45–60 min</span>
+      <span style="font-size:15px;text-align:right">od 40 KM</span>
+    </a>
+    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">04</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Masaža vulkanskim kamenjem</span>
+      <span style="font-size:14px;color:#8A9184">60–75 min</span>
+      <span style="font-size:15px;text-align:right">od 45 KM</span>
+    </a>
+    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">05</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Masaža stopala</span>
+      <span style="font-size:14px;color:#8A9184">30 min</span>
+      <span style="font-size:15px;text-align:right">od 20 KM</span>
+    </a>
+    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">06</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Anticelulit masaža</span>
+      <span style="font-size:14px;color:#8A9184">30–45 min</span>
+      <span style="font-size:15px;text-align:right">od 25 KM</span>
+    </a>
+    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;border-bottom:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">07</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Hidžama</span>
+      <span style="font-size:14px;color:#8A9184">45–60 min</span>
+      <span style="font-size:15px;text-align:right">od 40 KM</span>
+    </a>
+  </div>
+  <div style="display:flex;justify-content:flex-end;margin-top:24px">
+    <a href="Usluge.dc.html" style="text-decoration:none;font-size:16px;border-bottom:1px solid #C9C2B2;padding-bottom:4px;transition:color .25s,border-color .25s" style-hover="color:#6F8877;border-bottom:1px solid #6F8877">Sve usluge i detalji →</a>
+  </div>
+</section>
+<section style="padding:0 40px 90px;display:flex;flex-direction:column;gap:30px">
+  <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.2vw,44px)" data-reveal="0">Ovdje dolaze <em style="color:#6F8877">svakakvi</em></h2>
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+    <div data-reveal="0" style="background:#EFEAE0;border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s" style-hover="transform:translateY(-6px);box-shadow:0 18px 36px rgba(46,56,48,0.1)">
+      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A9184">Trening</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px">Sportisti i rekreativci</div>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#5A6459">Priprema, oporavak i mišići koji sutra opet moraju raditi.</p>
+    </div>
+    <div data-reveal="1" style="background:#EFEAE0;border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s" style-hover="transform:translateY(-6px);box-shadow:0 18px 36px rgba(46,56,48,0.1)">
+      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A9184">Kancelarija</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px">Sjedeći posao</div>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#5A6459">Vrat, ramena i krsta koja nose radni dan — ciljano i temeljno.</p>
+    </div>
+    <div data-reveal="2" style="background:#EFEAE0;border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s" style-hover="transform:translateY(-6px);box-shadow:0 18px 36px rgba(46,56,48,0.1)">
+      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A9184">Predah</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px">Relax i wellness</div>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#5A6459">Sat mira u kojem niko ništa ne traži od tebe.</p>
+    </div>
+    <div data-reveal="3" style="background:#EFEAE0;border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s" style-hover="transform:translateY(-6px);box-shadow:0 18px 36px rgba(46,56,48,0.1)">
+      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A9184">U prolazu</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px">Turisti u Trebinju</div>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#5A6459">U gradu si dan-dva? Termin porukom, oporavak odmah.</p>
+    </div>
+  </div>
+</section>
+<section style="background:#3C4A40;color:#F1EEE6;padding:84px 40px;display:flex;flex-direction:column;gap:44px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap" data-reveal="0">
+    <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.2vw,44px)">Kako izgleda <em style="color:#9DB4A0">prvi termin</em></h2>
+    <span style="font-size:14px;color:#9DB4A0">Bez formalnosti — sve ide porukom.</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px">
+    <div data-reveal="0" style="border-top:1px solid rgba(241,238,230,0.25);padding-top:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .35s" style-hover="border-top:1px solid #9DB4A0">
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:#9DB4A0">01</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px">Piši mi</div>
+      <p style="margin:0;font-size:15px;line-height:1.7;color:#C9D2C6">Viber ili Instagram — napiši šta te muči i kad ti odgovara. Odgovaram isti dan.</p>
+    </div>
+    <div data-reveal="1" style="border-top:1px solid rgba(241,238,230,0.25);padding-top:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .35s" style-hover="border-top:1px solid #9DB4A0">
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:#9DB4A0">02</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px">Razgovor i procjena</div>
+      <p style="margin:0;font-size:15px;line-height:1.7;color:#C9D2C6">Prije tretmana prolazimo kroz sve — bol, navike, treninge. Tek tu biramo tretman, ne prije.</p>
+    </div>
+    <div data-reveal="2" style="border-top:1px solid rgba(241,238,230,0.25);padding-top:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .35s" style-hover="border-top:1px solid #9DB4A0">
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:#9DB4A0">03</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px">Tretman i plan</div>
+      <p style="margin:0;font-size:15px;line-height:1.7;color:#C9D2C6">Radimo ono što tvom tijelu tog dana treba — i dobiješ preporuku šta dalje i kad opet.</p>
+    </div>
+  </div>
+</section>
+<sc-if value="{{ prikaziRecenzije }}" hint-placeholder-val="{{ true }}">
+<section style="background:#EFEAE0;padding:84px 40px">
+  <div style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#8A9184;margin-bottom:48px" data-reveal="0">· Iskustva klijenata</div>
+  <div style="display:flex;flex-direction:column;gap:52px">
+    <figure data-reveal="0" style="margin:0;max-width:760px;display:flex;flex-direction:column;gap:14px">
+      <blockquote style="margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.4vw,30px);line-height:1.35;font-weight:500"><em style="color:#6F8877">„</em>Godinama sam nosila bol u ramenima kao dio sebe. Poslije trećeg tretmana kod Maje — prvi put spavam cijelu noć.<em style="color:#6F8877">“</em></blockquote>
+      <figcaption style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#8A9184">Jelena · Trebinje</figcaption>
+    </figure>
+    <figure data-reveal="0" style="margin:0;max-width:760px;align-self:flex-end;text-align:right;display:flex;flex-direction:column;gap:14px">
+      <blockquote style="margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.4vw,30px);line-height:1.35;font-weight:500"><em style="color:#6F8877">„</em>Poslije priprema mišići su mi bili kao kamen. Sportska masaža kod Maje vratila me na teren za tri dana.<em style="color:#6F8877">“</em></blockquote>
+      <figcaption style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#8A9184">Nikola · rekreativac</figcaption>
+    </figure>
+    <figure data-reveal="0" style="margin:0;max-width:760px;display:flex;flex-direction:column;gap:14px">
+      <blockquote style="margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.4vw,30px);line-height:1.35;font-weight:500"><em style="color:#6F8877">„</em>Na hidžamu sam došla skeptična. Otišla sam lakša — i vratila se već dvaput.<em style="color:#6F8877">“</em></blockquote>
+      <figcaption style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#8A9184">S. M. · Trebinje</figcaption>
+    </figure>
+  </div>
+</section>
+</sc-if>
+<section style="padding:96px 40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:26px">
+  <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,3.6vw,50px);line-height:1.12;max-width:820px" data-reveal="0">Tijelo ti već zna <em style="color:#6F8877">zašto si ovdje</em>.</h2>
+  <p style="margin:0;font-size:17px;color:#5A6459" data-reveal="1">Termin dogovaramo porukom — javi se, odgovaram brzo.</p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center" data-reveal="2">
+    <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#6F8877;color:#F7F5EF;padding:15px 28px;border-radius:999px;font-size:16px;transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s" style-hover="background:#3C4A40;color:#F7F5EF;transform:translateY(-3px);box-shadow:0 14px 28px rgba(46,56,48,0.18)">Viber · 066 366 217</a>
+    <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" style="text-decoration:none;border:1px solid #C9C2B2;padding:14px 28px;border-radius:999px;font-size:16px;transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;transform:translateY(-3px)">Instagram ↗</a>
+  </div>
+</section>
+<footer style="background:#2E3830;color:#F1EEE6;padding:72px 40px 32px;display:flex;flex-direction:column;gap:52px">
+  <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.7fr) minmax(0,0.9fr) minmax(0,0.9fr);gap:44px">
+    <div style="display:flex;flex-direction:column;gap:22px;align-items:flex-start">
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,2.6vw,38px);line-height:1.15">Tijelo pamti sve.<br><em style="color:#9DB4A0">Pomozi mu da zaboravi.</em></div>
+      <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#F1EEE6;color:#2E3830;padding:13px 26px;border-radius:999px;font-size:15px;transition:background .3s,transform .3s" style-hover="background:#9DB4A0;color:#2E3830;transform:translateY(-2px)">Zakaži termin ↗</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:11px">
+      <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#8C948A;margin-bottom:6px">Stranice</div>
+      <a href="Pocetna.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Početna</a>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Usluge i cjenovnik</a>
+      <a href="O-Maji.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">O Maji</a>
+      <a href="Galerija.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Galerija</a>
+      <a href="Kontakt.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Kontakt i FAQ</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:11px">
+      <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#8C948A;margin-bottom:6px">Tretmani</div>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Medicinsko-terapijska masaža</a>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Relax masaža</a>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Sportska masaža</a>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Masaža vulkanskim kamenjem</a>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Masaža stopala</a>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Anticelulit masaža</a>
+      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Hidžama</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:11px">
+      <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#8C948A;margin-bottom:6px">Kontakt</div>
+      <a href="tel:+38766366217" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">066 / 366 - 217</a>
+      <a href="viber://chat?number=%2B38766366217" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Viber poruka</a>
+      <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Instagram DM</a>
+      <span style="color:#8C948A;font-size:14px">Trebinje · Republika Srpska, BiH</span>
+      <span style="color:#8C948A;font-size:14px">Termini po dogovoru — svaki dan</span>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(241,238,230,0.16);padding-top:22px;display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap">
+    <span style="font-size:13px;color:#8C948A">© 2026 Fizio masaže &amp; hidžama · Maja Ratković</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9DB4A0">Vidimo se u Trebinju.</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;prikaziRecenzije&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sekcije&quot;},&quot;brzinaTrake&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:30,&quot;min&quot;:8,&quot;max&quot;:60,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Traka&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!els.length) return;
+    this._orig = new Map();
+    els.forEach(el => {
+      this._orig.set(el, {tr: el.style.transition, tf: el.style.transform});
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+      el.style.transition = 'opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)';
+    });
+    this._io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const el = en.target;
+        this._io.unobserve(el);
+        const d = (parseInt(el.dataset.reveal, 10) || 0) * 110;
+        setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, d);
+        setTimeout(() => {
+          const o = this._orig.get(el) || {tr: '', tf: ''};
+          el.style.transition = o.tr; el.style.transform = o.tf; el.style.opacity = '';
+        }, d + 950);
+      });
+    }, {threshold: 0.1, rootMargin: '0px 0px -8% 0px'});
+    els.forEach(el => this._io.observe(el));
+  }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); }
+  renderVals() {
+    const speed = this.props.brzinaTrake ?? 30;
+    const items = ['Medicinsko-terapijske masaže','Relax masaže','Sportske masaže','Vulkansko kamenje','Masaža stopala','Anticelulit masaže','Hidžama'];
+    const seq = items.concat(items).map((t, i) => React.createElement(React.Fragment, {key: i},
+      React.createElement('span', {style: {fontFamily: "'Cormorant Garamond',serif", fontSize: '21px', fontStyle: i % 2 ? 'italic' : 'normal', color: '#F1EEE6'}}, t),
+      React.createElement('span', {style: {width: '6px', height: '6px', borderRadius: '50%', background: '#9DB4A0', flex: 'none'}})));
+    const marquee = React.createElement('div', {style: {display: 'flex', alignItems: 'center', gap: '32px', paddingLeft: '32px', whiteSpace: 'nowrap', width: 'max-content', animation: 'marq ' + speed + 's linear infinite'}}, seq);
+    const badge = React.createElement('div', {style: {position: 'relative', width: '140px', height: '140px'}},
+      React.createElement('svg', {viewBox: '0 0 200 200', width: '140', height: '140', style: {animation: 'spin 26s linear infinite', display: 'block'}},
+        React.createElement('defs', null, React.createElement('path', {id: 'bcirc', d: 'M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0'})),
+        React.createElement('text', {style: {fontSize: '16px', letterSpacing: '3px', fill: '#3C4A40', fontFamily: "'Figtree',sans-serif", fontWeight: 600}},
+          React.createElement('textPath', {href: '#bcirc'}, 'ZAKAŽI TERMIN · VIBER 066 366 217 · '))),
+      React.createElement('div', {style: {position: 'absolute', inset: '0', display: 'flex', alignItems: 'center', justifyContent: 'center'}},
+        React.createElement('div', {style: {width: '52px', height: '52px', borderRadius: '50%', background: '#6F8877', color: '#F7F5EF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', boxShadow: '0 8px 20px rgba(46,56,48,0.2)'}}, '↗')));
+    return {marquee, badge, prikaziRecenzije: this.props.prikaziRecenzije ?? true};
+  }
+}
+</script>
+</body>
+</html>
