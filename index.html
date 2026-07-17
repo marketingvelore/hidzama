@@ -1,277 +1,828 @@
 <!DOCTYPE html>
-<html>
+<html lang="bs">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<title>Maja Ratković — Fizio masaže &amp; hidžama · Trebinje</title>
+<meta name="description" content="Fizio i terapijske masaže, sportska masaža, relax, vulkansko kamenje i hidžama u Trebinju. Termini po dogovoru — Viber 066 366 217.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-html{scroll-behavior:smooth}
-body{margin:0;background:#F7F5EF;color:#2E3830;font-family:'Figtree',sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#2E3830;transition:color .25s}a:hover{color:#6F8877}
-::selection{background:#6F8877;color:#F7F5EF}
-@keyframes rise{from{opacity:0;transform:translateY(22px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
-@keyframes marq{to{transform:translateX(-50%)}}
+/* =======================================================
+   Maja Ratković — jednostrani sajt (SPA)
+   ======================================================= */
+:root{
+  --bone:#F7F5EF; --card:#EFEAE0; --border:#E3DDCE;
+  --ink:#2E3830; --ink-soft:#5A6459; --muted:#8A9184;
+  --sage:#6F8877; --sage-light:#9DB4A0; --forest:#3C4A40; --forest-deep:#2E3830;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Figtree',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --wrap:1180px; --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--ink);text-decoration:none;transition:color .25s}
+a:hover{color:var(--sage)}
+::selection{background:var(--sage);color:var(--bone)}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 40px}
+.section{padding:88px 0}
+.section--tight{padding:64px 0}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1.08}
+h1{font-size:clamp(40px,5vw,70px)}
+h2{font-size:clamp(28px,3.4vw,46px);line-height:1.12}
+h3{font-size:clamp(20px,2vw,26px)}
+.lead{font-size:clamp(16px,1.4vw,18px);line-height:1.7;color:var(--ink-soft);max-width:56ch}
+em.accent{color:var(--sage);font-style:italic}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5em;font-size:16px;padding:15px 28px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:transform .35s var(--ease),background .35s,box-shadow .35s,color .35s,border-color .35s;will-change:transform}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{background:var(--sage);color:var(--bone)}
+.btn-primary:hover{background:var(--forest);color:var(--bone);box-shadow:0 14px 28px rgba(46,56,48,.18)}
+.btn-outline{border-color:#C9C2B2;color:var(--ink)}
+.btn-outline:hover{background:var(--card);color:var(--ink)}
+.btn-light{background:var(--bone);color:var(--ink)}
+.btn-light:hover{background:var(--sage-light);color:var(--forest-deep)}
+.btn-ghost{border-color:rgba(241,238,230,.4);color:#F1EEE6}
+.btn-ghost:hover{background:rgba(241,238,230,.12);color:#fff}
+
+/* Header / Nav */
+.header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(247,245,239,.98),rgba(243,240,231,.92));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);box-shadow:0 6px 26px rgba(46,56,48,.07)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 40px;max-width:1320px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:22px;font-weight:600;white-space:nowrap}
+.brand em{color:var(--sage);font-style:italic;font-weight:500}
+.logo{width:42px;height:42px;flex:none;display:block;transition:transform .5s var(--ease)}
+.brand:hover .logo{transform:rotate(-8deg) scale(1.06)}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:15px}
+.nav-links a{position:relative;padding:4px 0}
+.nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-2px;height:1.5px;width:0;background:var(--sage);transition:width .3s var(--ease)}
+.nav-links a:not(.nav-cta):hover::after,.nav-links a.active::after{width:100%}
+.nav-links a.active{color:var(--sage);font-weight:600}
+.nav-links a.nav-cta{background:var(--forest);color:var(--bone)!important;padding:15px 42px;font-size:15px;border-radius:999px;font-weight:600;white-space:nowrap;line-height:1;transition:background .35s,transform .35s var(--ease),box-shadow .35s;margin-left:10px}
+.nav-links a.nav-cta:hover{background:var(--sage);transform:translateY(-2px);box-shadow:0 10px 22px rgba(46,56,48,.18)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:26px;height:2px;background:var(--ink);transition:transform .3s var(--ease),opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;flex-direction:column;gap:2px;background:var(--bone);border-bottom:1px solid var(--border);padding:8px 24px 20px}
+.mobile-menu a{padding:14px 6px;font-size:17px;border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{border-bottom:0}
+.mobile-menu .btn{margin-top:14px;justify-content:center}
+.mobile-menu.open{display:flex;animation:menuIn .35s var(--ease)}
+@keyframes menuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* ===== Curtain loader / page transition ===== */
+#curtain{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 120% at 50% 40%,#46564A 0%,var(--forest-deep) 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transform:translateY(0)}
+#curtain.cover{animation:curtainCover .5s var(--ease) forwards}
+#curtain.reveal{animation:curtainReveal .6s var(--ease) forwards}
+@keyframes curtainCover{from{transform:translateY(102%)}to{transform:translateY(0)}}
+@keyframes curtainReveal{from{transform:translateY(0)}to{transform:translateY(-102%)}}
+.curtain-logo{position:relative;width:104px;height:104px;display:flex;align-items:center;justify-content:center}
+.curtain-logo .ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(157,180,160,.22);border-top-color:var(--sage-light);animation:spin 1s linear infinite}
+.curtain-logo .ring2{position:absolute;inset:12px;border-radius:50%;border:2px solid rgba(157,180,160,.14);border-bottom-color:rgba(157,180,160,.55);animation:spin 1.6s linear infinite reverse}
+.curtain-logo svg{width:58px;height:58px;animation:leafPulse 1.3s var(--ease) infinite}
+@keyframes leafPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+.curtain-name{font-family:var(--serif);color:#F1EEE6;font-size:23px;letter-spacing:.02em}
+.curtain-name em{color:var(--sage-light);font-style:italic}
+.curtain-sub{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:rgba(241,238,230,.55)}
+
+/* Toast (kopiran broj) */
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--forest);color:var(--bone);padding:12px 22px;border-radius:999px;font-size:14px;box-shadow:0 12px 30px rgba(46,56,48,.25);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);z-index:110}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+.copy-phone{cursor:pointer;transition:color .25s}
+.copy-phone:hover{color:var(--sage)}
+
+/* Views */
+.view{display:none}
+.view.active{display:block;animation:viewIn .6s var(--ease)}
+@keyframes viewIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding:60px 0 84px}
+.hero-text{display:flex;flex-direction:column;gap:24px}
+.hero-media{position:relative;justify-self:end;width:min(410px,100%)}
+.hero-photo{height:460px;border-radius:210px 210px 26px 26px;overflow:hidden;background:var(--card);transition:transform .6s var(--ease),box-shadow .6s}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-media:hover .hero-photo{transform:translateY(-5px);box-shadow:0 26px 52px rgba(46,56,48,.16)}
+.badge{position:absolute;bottom:-26px;left:-38px;width:142px;height:142px}
+.badge svg{animation:spin 26s linear infinite;display:block}
+.badge .badge-core{position:absolute;width:54px;height:54px;border-radius:50%;background:var(--sage);color:var(--bone);display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 8px 20px rgba(46,56,48,.22);top:50%;left:50%;transform:translate(-50%,-50%)}
+.badge:hover svg{animation-play-state:paused}
+
+/* Marquee */
+.marquee{background:var(--forest);color:var(--bone);padding:15px 0;overflow:hidden}
+.marquee-track{display:flex;align-items:center;gap:32px;width:max-content;padding-left:32px;animation:marq 32s linear infinite;white-space:nowrap}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-item{font-family:var(--serif);font-size:21px}
+.marquee-item:nth-child(even){font-style:italic}
+.marquee-dot{width:6px;height:6px;border-radius:50%;background:var(--sage-light);flex:none}
+
+/* Intro */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);gap:72px;align-items:center}
+.intro-text{display:flex;flex-direction:column;gap:26px}
+.intro-media{justify-self:end;width:100%;max-width:440px;border-radius:24px;overflow:hidden;background:var(--card);aspect-ratio:4/5;max-height:470px}
+.intro-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.intro-media:hover img{transform:scale(1.04)}
+.intro-big{font-family:var(--serif);font-size:clamp(23px,2.6vw,34px);line-height:1.35;font-weight:500;max-width:none;margin:0}
+.link-underline{border-bottom:1px solid #C9C2B2;padding-bottom:4px;align-self:flex-start;transition:color .25s,border-color .25s}
+.link-underline:hover{color:var(--sage);border-color:var(--sage)}
+
+/* Services list */
+.svc-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+.svc-list{display:flex;flex-direction:column}
+.svc-row{display:grid;grid-template-columns:64px minmax(0,1fr) auto 128px;gap:24px;align-items:baseline;padding:20px 10px;border-top:1px solid var(--border);transition:background .35s,padding .35s var(--ease)}
+.svc-list .svc-row:last-child{border-bottom:1px solid var(--border)}
+.svc-row:hover{background:var(--card);padding-left:24px}
+.svc-num{font-family:var(--serif);font-style:italic;color:var(--sage);font-size:18px}
+.svc-name{font-family:var(--serif);font-weight:500;font-size:clamp(20px,2vw,27px)}
+.svc-time{font-size:14px;color:var(--muted)}
+.svc-price{font-size:15px;text-align:right;white-space:nowrap}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.cards-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--card);border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .45s var(--ease),box-shadow .45s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(46,56,48,.1)}
+.card .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.card h3{font-size:23px}
+.card p{margin:0;font-size:15px;color:var(--ink-soft)}
+
+/* Detailed service card */
+.svc-detail{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:start;border-radius:24px;margin-bottom:16px;padding:30px 28px;background:var(--card);transition:transform .4s var(--ease),box-shadow .4s}
+.svc-detail:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(46,56,48,.1)}
+.svc-detail .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.svc-detail h3{margin:6px 0}
+.svc-detail p{margin:0;color:var(--ink-soft)}
+.svc-detail .price{font-family:var(--serif);font-size:26px;color:var(--sage)}
+.svc-detail .right{text-align:right}
+
+/* Steps (dark) */
+.band-dark{background:var(--forest);color:#F1EEE6}
+.band-dark h2 em{color:var(--sage-light)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;margin-top:40px}
+.step{border-top:1px solid rgba(241,238,230,.25);padding-top:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .35s}
+.step:hover{border-color:var(--sage-light)}
+.step-n{font-family:var(--serif);font-style:italic;font-size:34px;color:var(--sage-light)}
+.step h3{font-size:24px}
+.step p{margin:0;font-size:15px;line-height:1.7;color:#C9D2C6}
+
+/* Quotes */
+.band-soft{background:var(--card)}
+.quotes{display:flex;flex-direction:column;gap:52px;margin-top:40px}
+.quote{margin:0;max-width:760px;display:flex;flex-direction:column;gap:14px}
+.quote.right{align-self:flex-end;text-align:right}
+.quote blockquote{margin:0;font-family:var(--serif);font-size:clamp(21px,2.4vw,30px);line-height:1.35;font-weight:500}
+.quote blockquote em{color:var(--sage)}
+.quote figcaption{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* Gallery — mozaik */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.gallery-item{position:relative;overflow:hidden;border-radius:22px;background:var(--card);aspect-ratio:4/5}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item .cap{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;color:#fff;font-size:14px;letter-spacing:.02em;background:linear-gradient(to top,rgba(46,56,48,.72),transparent);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s var(--ease)}
+.gallery-item:hover .cap{opacity:1;transform:none}
+
+/* Split (about) */
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.split-media{border-radius:24px;overflow:hidden;background:var(--card);aspect-ratio:4/5}
+.split-media img{width:100%;height:100%;object-fit:cover}
+.prose{display:flex;flex-direction:column;gap:18px}
+.prose p{margin:0;color:var(--ink-soft);font-size:16px;line-height:1.75}
+.stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:8px}
+.stat .n{font-family:var(--serif);font-size:40px;color:var(--sage)}
+.stat .l{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;margin-top:32px;max-width:840px}
+.faq-item{border-top:1px solid var(--border)}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-item summary{list-style:none;cursor:pointer;padding:22px 4px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--serif);font-size:clamp(19px,2vw,24px);font-weight:500}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .plus{color:var(--sage);font-size:26px;transition:transform .3s var(--ease);flex:none}
+.faq-item[open] summary .plus{transform:rotate(45deg)}
+.faq-item .answer{padding:0 4px 24px;color:var(--ink-soft);font-size:16px;line-height:1.75;max-width:70ch}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.contact-card{background:var(--card);border-radius:24px;padding:36px}
+.contact-row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.contact-row:last-child{border-bottom:0}
+.contact-row .ic{width:40px;height:40px;border-radius:50%;background:var(--sage);color:var(--bone);display:flex;align-items:center;justify-content:center;flex:none;font-size:18px}
+.contact-row .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.contact-row .v{font-size:17px;font-family:var(--serif);font-weight:500}
+.hint{font-size:12px;color:var(--muted);margin-top:3px}
+
+/* Map */
+.map{margin-top:28px;border-radius:24px;overflow:hidden;border:1px solid var(--border);background:var(--card)}
+.map .map-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 22px;flex-wrap:wrap}
+.map .map-bar .k{font-family:var(--serif);font-size:20px;font-weight:500}
+.map iframe{display:block;width:100%;height:420px;border:0;filter:grayscale(.2) contrast(1.02)}
+
+/* CTA band */
+.cta-band{text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px}
+.cta-band h2{max-width:22ch}
+.btn-group{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+/* Page hero */
+.pagehead{padding:64px 0 40px;display:flex;flex-direction:column;gap:16px}
+.pagehead h1{font-size:clamp(38px,4.4vw,60px)}
+.pagehead p{max-width:60ch;color:var(--ink-soft);font-size:17px;margin:0}
+.pagehead-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.9fr);gap:56px;align-items:center;padding:56px 0 44px}
+.pagehead-hero .ph-text{display:flex;flex-direction:column;gap:16px}
+.ph-media{justify-self:end;width:100%;max-width:430px;border-radius:24px;overflow:hidden;background:var(--card);aspect-ratio:4/5;max-height:450px}
+.ph-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.ph-media:hover img{transform:scale(1.04)}
+
+/* Footer */
+.footer{background:var(--forest-deep);color:#F1EEE6;padding:72px 0 32px}
+.footer a{color:#F1EEE6}
+.footer-grid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,.9fr));gap:44px}
+.footer h4{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8C948A;margin:0 0 14px;font-family:var(--sans);font-weight:600}
+.footer .col{display:flex;flex-direction:column;gap:11px}
+.footer .col a{font-size:15px;transition:color .25s,padding .25s;cursor:pointer}
+.footer .col a:not(.btn):hover{color:var(--sage-light);padding-left:4px}
+.footer a.btn-light{color:var(--ink)}
+.footer a.btn-light:hover{color:var(--forest-deep)}
+.footer .big{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.6vw,36px);line-height:1.15;margin-bottom:20px}
+.footer .big em{color:var(--sage-light);font-style:italic}
+.footer .muted{color:#8C948A;font-size:14px}
+.footer-bottom{border-top:1px solid rgba(241,238,230,.16);margin-top:52px;padding-top:22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline}
+.footer-bottom .sig{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--sage-light)}
+
+/* Reveal */
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
+.view.active .hero-text>*{opacity:0;transform:translateY(22px);animation:rise .9s var(--ease) forwards}
+.view.active .hero-text>*:nth-child(1){animation-delay:.06s}
+.view.active .hero-text>*:nth-child(2){animation-delay:.16s}
+.view.active .hero-text>*:nth-child(3){animation-delay:.26s}
+.view.active .hero-text>*:nth-child(4){animation-delay:.36s}
+.view.active .hero-media{opacity:0;transform:translateY(22px);animation:rise 1s var(--ease) .32s forwards}
+@keyframes rise{to{opacity:1;transform:none}}
 @keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition:none!important}
+  [data-reveal]{opacity:1;transform:none}
+  #curtain{display:none!important}
+}
+
+/* Responsive */
+@media (max-width:1000px){
+  .wrap{padding:0 28px}
+  .hero{grid-template-columns:1fr;gap:40px;padding:44px 0 64px}
+  .hero-media{justify-self:start;width:100%;max-width:420px}
+  .intro{grid-template-columns:1fr;gap:30px}
+  .intro-text{order:-1}
+  .intro-media{width:100%;max-width:460px}
+  .steps{grid-template-columns:1fr}
+  .cards-3{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr;gap:32px}
+  .split-media{max-width:460px}
+  .contact{grid-template-columns:1fr;gap:28px}
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .pagehead-hero{grid-template-columns:1fr;gap:28px}
+  .pagehead-hero .ph-text{order:-1}
+  .ph-media{justify-self:start;max-width:460px}
+}
+@media (max-width:820px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  .wrap{padding:0 28px}
+  .section{padding:60px 0}
+  .section--tight{padding:44px 0}
+  .nav{padding:11px 20px}
+  .brand{font-size:19px;gap:9px}
+  .logo{width:36px;height:36px}
+  .hero{padding:60px 0 48px}
+  .pagehead{padding:64px 0 30px}
+  .pagehead-hero{padding:56px 0 30px}
+  .hero-photo{height:400px}
+  .badge{left:-6px;bottom:-16px;width:120px;height:120px}
+  .badge svg{width:120px;height:120px}
+  .cards{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr);gap:12px}
+  .footer-grid{grid-template-columns:1fr;gap:30px}
+  .contact-card{padding:26px}
+  .map iframe{height:320px}
+  .svc-detail{grid-template-columns:1fr;gap:14px}
+  .svc-detail .right{text-align:left}
+  .btn{width:100%;justify-content:center}
+  .btn-group .btn{width:auto}
+  .svc-row{grid-template-columns:28px minmax(0,1fr) auto;column-gap:12px;row-gap:2px;padding:16px 6px}
+  .svc-row:hover{padding-left:6px}
+  .svc-num{grid-row:1 / span 2}
+  .svc-name{grid-column:2 / 4;font-size:18px}
+  .svc-time{grid-column:2}
+  .svc-price{grid-column:3;text-align:right}
+}
 </style>
-<script src="image-slot.js"></script>
-</helmet>
-<nav data-screen-label="Početna" style="display:flex;justify-content:space-between;align-items:center;padding:16px 40px;position:sticky;top:0;background:rgba(247,245,239,0.85);backdrop-filter:blur(12px);border-bottom:1px solid #E3DDCE;z-index:50">
-  <a href="index.html" style="text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600">Maja Ratković <em style="color:#6F8877">· fizio &amp; hidžama</em></a>
-  <div style="display:flex;gap:24px;align-items:center;font-size:15px">
-    <a href="index.html" style="text-decoration:none;color:#6F8877;font-weight:500">Početna</a>
-    <a href="Usluge.dc.html" style="text-decoration:none">Usluge</a>
-    <a href="O-Maji.dc.html" style="text-decoration:none">O Maji</a>
-    <a href="Galerija.dc.html" style="text-decoration:none">Galerija</a>
-    <a href="Kontakt.dc.html" style="text-decoration:none">Kontakt</a>
-    <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#3C4A40;color:#F7F5EF;padding:10px 20px;border-radius:999px;transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#6F8877;color:#F7F5EF;transform:translateY(-2px)">Zakaži · 066 366 217</a>
+</head>
+<body>
+
+<!-- Curtain loader / prelaz -->
+<div id="curtain" aria-hidden="true">
+  <div class="curtain-logo">
+    <span class="ring"></span>
+    <span class="ring2"></span>
+    <svg viewBox="0 0 48 48" aria-hidden="true">
+      <path d="M24 8 C16 16 16 30 24 40 C32 30 32 16 24 8 Z" fill="#9DB4A0"></path>
+      <path d="M24 12 L24 37" stroke="#F7F5EF" stroke-width="1.5" stroke-linecap="round" opacity=".85"></path>
+      <path d="M24 22 C21 22.6 19.3 24.3 18.7 26.6" stroke="#F7F5EF" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".7"></path>
+      <path d="M24 22 C27 22.6 28.7 24.3 29.3 26.6" stroke="#F7F5EF" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".7"></path>
+    </svg>
   </div>
-</nav>
-<section style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:48px;padding:56px 40px 72px;align-items:center">
-  <div style="display:flex;flex-direction:column;gap:24px">
-    <div style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#8A9184;animation:rise .9s cubic-bezier(.22,1,.36,1) both">Fizio masaže &amp; hidžama — Trebinje</div>
-    <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(42px,4.8vw,68px);line-height:1.05;animation:rise .9s cubic-bezier(.22,1,.36,1) .12s both">Ruke koje znaju<br><em style="color:#6F8877;font-weight:500">gdje boli</em>.</h1>
-    <p style="margin:0;max-width:500px;font-size:17px;line-height:1.65;color:#5A6459;animation:rise .9s cubic-bezier(.22,1,.36,1) .24s both">Ja sam Maja — fizioterapeut. Bilo da te muče leđa, treninzi ili samo život, ovdje se dolazi po jedno: da izađeš lakši nego što si ušao.</p>
-    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;animation:rise .9s cubic-bezier(.22,1,.36,1) .36s both">
-      <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#6F8877;color:#F7F5EF;padding:15px 28px;border-radius:999px;font-size:16px;transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s" style-hover="background:#3C4A40;color:#F7F5EF;transform:translateY(-3px);box-shadow:0 14px 28px rgba(46,56,48,0.18)">Piši mi na Viber ↗</a>
-      <a href="Usluge.dc.html" style="text-decoration:none;border:1px solid #C9C2B2;padding:14px 28px;border-radius:999px;font-size:16px;transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;transform:translateY(-3px)">Usluge i cijene</a>
-    </div>
-  </div>
-  <div style="position:relative;justify-self:end;width:min(400px,100%);animation:rise 1s cubic-bezier(.22,1,.36,1) .3s both">
-    <div style="height:440px;border-radius:200px 200px 24px 24px;overflow:hidden;transition:transform .6s cubic-bezier(.22,1,.36,1),box-shadow .6s" style-hover="transform:translateY(-4px);box-shadow:0 24px 48px rgba(46,56,48,0.14)">
-      <image-slot id="maja-hero" shape="rect" src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=1200&auto=format&fit=crop" credit="Photo by Conscious Design on Unsplash" credit-href="https://unsplash.com/@conscious_design" placeholder="Fotografija Maje ili studija"></image-slot>
-    </div>
-    <div style="position:absolute;bottom:-24px;left:-40px">
-      <a href="tel:+38766366217" style="text-decoration:none;display:block;transition:transform .45s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.07) rotate(6deg)">{{ badge }}</a>
-    </div>
-  </div>
-</section>
-<div style="background:#3C4A40;color:#F7F5EF;padding:14px 0;overflow:hidden">{{ marquee }}</div>
-<section style="padding:84px 40px;display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:40px">
-  <div style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#8A9184" data-reveal="0">· Upoznaj me</div>
-  <div style="display:flex;flex-direction:column;gap:30px;max-width:820px" data-reveal="1">
-    <p style="margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.6vw,34px);line-height:1.35;font-weight:500">„Zdravo, ja sam Maja. Vjerujem da tijelo pamti sve — stres, treninge, godine za ekranom. Moj posao je da mu pomognem <em style="color:#6F8877">da zaboravi</em>.“</p>
-    <a href="O-Maji.dc.html" style="text-decoration:none;font-size:16px;border-bottom:1px solid #C9C2B2;align-self:flex-start;padding-bottom:4px;transition:color .25s,border-color .25s" style-hover="color:#6F8877;border-bottom:1px solid #6F8877">Upoznaj Maju →</a>
-  </div>
-</section>
-<section style="padding:0 40px 90px">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:30px;flex-wrap:wrap" data-reveal="0">
-    <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.2vw,44px)">Šta radim</h2>
-    <div style="font-size:14px;color:#8A9184">Okvirne cijene — konačna zavisi od procjene i trajanja.</div>
-  </div>
-  <div style="display:flex;flex-direction:column" data-reveal="1">
-    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
-      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">01</span>
-      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Medicinsko-terapijska masaža</span>
-      <span style="font-size:14px;color:#8A9184">30–45 min</span>
-      <span style="font-size:15px;text-align:right">od 30 KM</span>
+  <div class="curtain-name">Maja Ratković <em>·</em></div>
+  <div class="curtain-sub">fizio &amp; hidžama · Trebinje</div>
+</div>
+
+<div id="toast" role="status" aria-live="polite">Broj kopiran ✓</div>
+
+<header class="header">
+  <nav class="nav">
+    <a href="#home" class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="42" height="42">
+          <circle cx="24" cy="24" r="23" fill="#3C4A40"></circle>
+          <path d="M24 10.5 C17.5 16.5 17.5 27.5 24 37.5 C30.5 27.5 30.5 16.5 24 10.5 Z" fill="#9DB4A0"></path>
+          <path d="M24 14 L24 34" stroke="#F7F5EF" stroke-width="1.4" stroke-linecap="round" opacity=".85"></path>
+          <path d="M24 22 C21.5 22.5 20 24 19.5 26" stroke="#F7F5EF" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".7"></path>
+          <path d="M24 22 C26.5 22.5 28 24 28.5 26" stroke="#F7F5EF" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".7"></path>
+        </svg>
+      </span>
+      <span>Maja Ratković <em>· fizio &amp; hidžama</em></span>
     </a>
-    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
-      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">02</span>
-      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Relax masaža</span>
-      <span style="font-size:14px;color:#8A9184">60 min</span>
-      <span style="font-size:15px;text-align:right">od 35 KM</span>
-    </a>
-    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
-      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">03</span>
-      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Sportska masaža</span>
-      <span style="font-size:14px;color:#8A9184">45–60 min</span>
-      <span style="font-size:15px;text-align:right">od 40 KM</span>
-    </a>
-    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
-      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">04</span>
-      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Masaža vulkanskim kamenjem</span>
-      <span style="font-size:14px;color:#8A9184">60–75 min</span>
-      <span style="font-size:15px;text-align:right">od 45 KM</span>
-    </a>
-    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
-      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">05</span>
-      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Masaža stopala</span>
-      <span style="font-size:14px;color:#8A9184">30 min</span>
-      <span style="font-size:15px;text-align:right">od 20 KM</span>
-    </a>
-    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
-      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">06</span>
-      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Anticelulit masaža</span>
-      <span style="font-size:14px;color:#8A9184">30–45 min</span>
-      <span style="font-size:15px;text-align:right">od 25 KM</span>
-    </a>
-    <a href="Usluge.dc.html" style="text-decoration:none;display:grid;grid-template-columns:64px minmax(0,1fr) auto 120px;gap:24px;align-items:baseline;padding:18px 10px;border-top:1px solid #E3DDCE;border-bottom:1px solid #E3DDCE;transition:background .35s,padding .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;padding:18px 10px 18px 24px">
-      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6F8877;font-size:18px">07</span>
-      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2vw,27px)">Hidžama</span>
-      <span style="font-size:14px;color:#8A9184">45–60 min</span>
-      <span style="font-size:15px;text-align:right">od 40 KM</span>
-    </a>
+    <div class="nav-links">
+      <a href="#home" data-nav="home">Početna</a>
+      <a href="#usluge" data-nav="usluge">Usluge</a>
+      <a href="#o-maji" data-nav="o-maji">O Maji</a>
+      <a href="#galerija" data-nav="galerija">Galerija</a>
+      <a href="#kontakt" data-nav="kontakt">Kontakt</a>
+      <a href="#kontakt" class="nav-cta">Zakaži termin</a>
+    </div>
+    <button class="burger" aria-label="Otvori meni" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="#home" data-nav="home">Početna</a>
+    <a href="#usluge" data-nav="usluge">Usluge</a>
+    <a href="#o-maji" data-nav="o-maji">O Maji</a>
+    <a href="#galerija" data-nav="galerija">Galerija</a>
+    <a href="#kontakt" data-nav="kontakt">Kontakt</a>
+    <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
   </div>
-  <div style="display:flex;justify-content:flex-end;margin-top:24px">
-    <a href="Usluge.dc.html" style="text-decoration:none;font-size:16px;border-bottom:1px solid #C9C2B2;padding-bottom:4px;transition:color .25s,border-color .25s" style-hover="color:#6F8877;border-bottom:1px solid #6F8877">Sve usluge i detalji →</a>
+</header>
+
+<main id="app">
+
+  <!-- ============ POČETNA ============ -->
+  <div class="view" data-view="home">
+    <section class="wrap hero">
+      <div class="hero-text">
+        <span class="eyebrow">Fizio masaže &amp; hidžama — Trebinje</span>
+        <h1>Ruke koje znaju<br><em class="accent">gdje boli</em>.</h1>
+        <p class="lead">Ja sam Maja — fizioterapeut. Bilo da te muče leđa, treninzi ili samo život, ovdje se dolazi po jedno: da izađeš lakši nego što si ušao.</p>
+        <div class="btn-group" style="justify-content:flex-start">
+          <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+          <a href="#usluge" class="btn btn-outline">Usluge i cijene</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="hero-photo">
+          <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=1200&auto=format&fit=crop" alt="Studio za masažu" onerror="this.onerror=null;this.src='https://picsum.photos/seed/maja-hero/800/1000?grayscale'">
+        </div>
+        <a href="#kontakt" class="badge" aria-label="Zakaži termin">
+          <svg viewBox="0 0 200 200" width="142" height="142" aria-hidden="true">
+            <defs><path id="bcirc" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"></path></defs>
+            <text style="font-size:15px;letter-spacing:2.5px;fill:#3C4A40;font-family:'Figtree',sans-serif;font-weight:600"><textPath href="#bcirc">ZAKAŽI TERMIN · MAJA RATKOVIĆ · </textPath></text>
+          </svg>
+          <span class="badge-core">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="marquee">
+      <div class="marquee-track">
+        <span class="marquee-item">Medicinsko-terapijske masaže</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Relax masaže</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Sportske masaže</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Vulkansko kamenje</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Masaža stopala</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Anticelulit masaže</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Hidžama</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Medicinsko-terapijske masaže</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Relax masaže</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Sportske masaže</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Vulkansko kamenje</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Masaža stopala</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Anticelulit masaže</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Hidžama</span><span class="marquee-dot"></span>
+      </div>
+    </div>
+
+    <section class="wrap section intro">
+      <div class="intro-text" data-reveal="0">
+        <p class="intro-big">„Zdravo, ja sam Maja. Vjerujem da tijelo pamti sve — stres, treninge, godine za ekranom. Moj posao je da mu pomognem <em class="accent">da zaboravi</em>.“</p>
+        <a href="#o-maji" class="link-underline">Upoznaj Maju →</a>
+      </div>
+      <div class="intro-media" data-reveal="1">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1000&auto=format&fit=crop" alt="Maja tokom tretmana" onerror="this.onerror=null;this.src='https://picsum.photos/seed/maja-intro/800/1000?grayscale'">
+      </div>
+    </section>
+
+    <section class="band-dark">
+      <div class="wrap section cta-band">
+        <span class="eyebrow" data-reveal="0" style="color:var(--sage-light)">· Zakaži termin</span>
+        <h2 data-reveal="1">Tijelo ti već zna <em>zašto si ovdje</em>.</h2>
+        <p data-reveal="2" style="max-width:52ch;color:#C9D2C6;font-size:17px">Termin dogovaramo porukom — javi se i odgovaram brzo. Pogledaj usluge i cijene, ili piši odmah.</p>
+        <div class="btn-group" data-reveal="3">
+          <a href="#kontakt" class="btn btn-light">Zakaži termin</a>
+          <a href="#usluge" class="btn btn-ghost">Usluge i cijene</a>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
-<section style="padding:0 40px 90px;display:flex;flex-direction:column;gap:30px">
-  <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.2vw,44px)" data-reveal="0">Ovdje dolaze <em style="color:#6F8877">svakakvi</em></h2>
-  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
-    <div data-reveal="0" style="background:#EFEAE0;border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s" style-hover="transform:translateY(-6px);box-shadow:0 18px 36px rgba(46,56,48,0.1)">
-      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A9184">Trening</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px">Sportisti i rekreativci</div>
-      <p style="margin:0;font-size:15px;line-height:1.6;color:#5A6459">Priprema, oporavak i mišići koji sutra opet moraju raditi.</p>
-    </div>
-    <div data-reveal="1" style="background:#EFEAE0;border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s" style-hover="transform:translateY(-6px);box-shadow:0 18px 36px rgba(46,56,48,0.1)">
-      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A9184">Kancelarija</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px">Sjedeći posao</div>
-      <p style="margin:0;font-size:15px;line-height:1.6;color:#5A6459">Vrat, ramena i krsta koja nose radni dan — ciljano i temeljno.</p>
-    </div>
-    <div data-reveal="2" style="background:#EFEAE0;border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s" style-hover="transform:translateY(-6px);box-shadow:0 18px 36px rgba(46,56,48,0.1)">
-      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A9184">Predah</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px">Relax i wellness</div>
-      <p style="margin:0;font-size:15px;line-height:1.6;color:#5A6459">Sat mira u kojem niko ništa ne traži od tebe.</p>
-    </div>
-    <div data-reveal="3" style="background:#EFEAE0;border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s" style-hover="transform:translateY(-6px);box-shadow:0 18px 36px rgba(46,56,48,0.1)">
-      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A9184">U prolazu</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px">Turisti u Trebinju</div>
-      <p style="margin:0;font-size:15px;line-height:1.6;color:#5A6459">U gradu si dan-dva? Termin porukom, oporavak odmah.</p>
-    </div>
+
+  <!-- ============ USLUGE ============ -->
+  <div class="view" data-view="usluge">
+    <section class="wrap pagehead">
+      <span class="eyebrow" data-reveal="0">· Usluge i cjenovnik</span>
+      <h1 data-reveal="1">Svaki tretman <em class="accent">se bira</em>, ne kupuje.</h1>
+      <p data-reveal="2">Cijene su okvirne — konačna zavisi od procjene, trajanja i broja regija koje radimo. Prvo razgovaramo, pa biramo. Termin dogovaramo porukom.</p>
+    </section>
+
+    <section class="wrap section--tight">
+      <article class="svc-detail" data-reveal="0"><div><span class="tag">01 · Terapija</span><h3>Medicinsko-terapijska masaža</h3><p>Ciljano na bol i napetost — vrat, ramena, krsta. Kombinacija tehnika za oslobađanje mišićnih čvorova i vraćanje pokretljivosti.</p></div><div class="right"><div class="price">od 30 KM</div><div class="svc-time">30–45 min</div></div></article>
+      <article class="svc-detail" data-reveal="0"><div><span class="tag">02 · Opuštanje</span><h3>Relax masaža</h3><p>Nježniji, ujednačeni pokreti cijelim tijelom. Za smirivanje živčanog sistema, bolji san i sat mira samo za tebe.</p></div><div class="right"><div class="price">od 35 KM</div><div class="svc-time">60 min</div></div></article>
+      <article class="svc-detail" data-reveal="1"><div><span class="tag">03 · Sport</span><h3>Sportska masaža</h3><p>Priprema prije i oporavak poslije napora. Dublji rad na velikim mišićnim grupama, prokrvljenost i brži povratak na trening.</p></div><div class="right"><div class="price">od 40 KM</div><div class="svc-time">45–60 min</div></div></article>
+      <article class="svc-detail" data-reveal="1"><div><span class="tag">04 · Toplina</span><h3>Masaža vulkanskim kamenjem</h3><p>Zagrijano vulkansko kamenje otvara mišiće prije rada rukama. Duboko opuštanje uz prijatnu toplinu — idealno za hladnije dane.</p></div><div class="right"><div class="price">od 45 KM</div><div class="svc-time">60–75 min</div></div></article>
+      <article class="svc-detail" data-reveal="2"><div><span class="tag">05 · Refleks</span><h3>Masaža stopala</h3><p>Kratak, koncentrisan tretman stopala. Za umorne noge nakon dugog dana na nogama ili treninga.</p></div><div class="right"><div class="price">od 20 KM</div><div class="svc-time">30 min</div></div></article>
+      <article class="svc-detail" data-reveal="2"><div><span class="tag">06 · Tijelo</span><h3>Anticelulit masaža</h3><p>Intenzivnije tehnike za problematične zone. Najbolji rezultati u seriji tretmana, uz redovnost.</p></div><div class="right"><div class="price">od 25 KM</div><div class="svc-time">30–45 min</div></div></article>
+      <article class="svc-detail" data-reveal="3"><div><span class="tag">07 · Hidžama</span><h3>Hidžama</h3><p>Tradicionalna terapija čašama. Radi se po dogovoru i procjeni. O detaljima i pripremi razgovaramo prije termina.</p></div><div class="right"><div class="price">od 40 KM</div><div class="svc-time">45–60 min</div></div></article>
+    </section>
+
+    <section class="band-soft">
+      <div class="wrap section--tight">
+        <div class="cards cards-3">
+          <div class="card" data-reveal="0"><span class="tag">Napomena</span><h3>Cijene su okvirne</h3><p>Konačna cijena zavisi od trajanja i broja regija. Sve dogovaramo unaprijed — bez iznenađenja.</p></div>
+          <div class="card" data-reveal="1"><span class="tag">Paketi</span><h3>Serija tretmana</h3><p>Za terapije i anticelulit najbolji efekat daje serija. Pitaj za povoljniji paket.</p></div>
+          <div class="card" data-reveal="2"><span class="tag">Plaćanje</span><h3>Gotovina</h3><p>Plaćanje na licu mjesta. Termin se dogovara i potvrđuje porukom.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section cta-band">
+      <h2 data-reveal="0">Nisi siguran <em class="accent">šta ti treba</em>?</h2>
+      <p class="lead" data-reveal="1" style="text-align:center">Napiši mi šta te muči — predložiću tretman koji ima najviše smisla.</p>
+      <div class="btn-group" data-reveal="2">
+        <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+        <a href="#galerija" class="btn btn-outline">Pogledaj galeriju</a>
+      </div>
+    </section>
   </div>
-</section>
-<section style="background:#3C4A40;color:#F1EEE6;padding:84px 40px;display:flex;flex-direction:column;gap:44px">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap" data-reveal="0">
-    <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.2vw,44px)">Kako izgleda <em style="color:#9DB4A0">prvi termin</em></h2>
-    <span style="font-size:14px;color:#9DB4A0">Bez formalnosti — sve ide porukom.</span>
+
+  <!-- ============ O MAJI ============ -->
+  <div class="view" data-view="o-maji">
+    <section class="wrap pagehead pagehead-hero">
+      <div class="ph-text">
+        <span class="eyebrow" data-reveal="0">· O Maji</span>
+        <h1 data-reveal="1">Iza svakog tretmana<br><em class="accent">stoji čovjek</em>.</h1>
+        <p data-reveal="2" style="color:var(--ink-soft);font-size:17px;margin:0;max-width:44ch">Fizioterapeut iz Trebinja — s pristupom koji počinje slušanjem, a ne cjenovnikom.</p>
+      </div>
+      <div class="ph-media" data-reveal="2">
+        <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=1000&auto=format&fit=crop" alt="Detalji studija" onerror="this.onerror=null;this.src='https://picsum.photos/seed/omaji-hero/800/1000?grayscale'">
+      </div>
+    </section>
+
+    <section class="wrap section--tight">
+      <div class="split">
+        <div class="split-media" data-reveal="0">
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1000&auto=format&fit=crop" alt="Maja u studiju" onerror="this.onerror=null;this.src='https://picsum.photos/seed/maja-portret/800/1000?grayscale'">
+        </div>
+        <div class="prose" data-reveal="1">
+          <h2>Zdravo, ja sam Maja.</h2>
+          <p>Fizioterapeut sam iz Trebinja. Godinama radim s tijelima koja nose previše — od sportista i ljudi za ekranom, do onih koji samo žele sat mira.</p>
+          <p>Vjerujem da tijelo pamti sve: stres, treninge, loše stolice, neispavane noći. Moj posao nije da ga „popravim“ na silu, nego da mu pomognem da se sjeti kako je bilo prije bola.</p>
+          <p>Ne prodajem tretmane s police. Prvo saslušam, pa procijenim, pa biramo zajedno. Zato dva termina kod mene nikad nisu ista.</p>
+          <div class="stats">
+            <div class="stat"><div class="n">7</div><div class="l">Vrsta tretmana</div></div>
+            <div class="stat"><div class="n">1:1</div><div class="l">Uvijek posvećeno</div></div>
+            <div class="stat"><div class="n">Trebinje</div><div class="l">Termini svaki dan</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-soft">
+      <div class="wrap section">
+        <h2 data-reveal="0">Kako radim</h2>
+        <div class="cards cards-3" style="margin-top:30px">
+          <div class="card" data-reveal="0"><span class="tag">Prvo slušam</span><h3>Procjena prije svega</h3><p>Prije nego dodirnem mišić, razgovaramo o boli, navikama i tome šta ti tijelo radi svaki dan.</p></div>
+          <div class="card" data-reveal="1"><span class="tag">Bez šablona</span><h3>Tretman po mjeri</h3><p>Biramo tehniku i intenzitet prema tebi tog dana — ne prema cjenovniku.</p></div>
+          <div class="card" data-reveal="2"><span class="tag">I poslije</span><h3>Plan za dalje</h3><p>Dobiješ preporuku šta raditi kod kuće i kad ima smisla doći ponovo.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-dark">
+      <div class="wrap section cta-band">
+        <h2 data-reveal="0" style="max-width:26ch">„Najljepši kompliment mi je kad neko na vratima kaže — <em>ne sjećam se kad sam se ovako osjećao.</em>“</h2>
+        <p data-reveal="1" class="svc-time" style="color:var(--sage-light)">— Maja</p>
+      </div>
+    </section>
+
+    <section class="wrap section cta-band">
+      <h2 data-reveal="0">Hajde da počnemo <em class="accent">od tvog tijela</em>.</h2>
+      <p class="lead" data-reveal="1" style="text-align:center">Javi se porukom — odgovaram brzo i dogovaramo termin koji ti odgovara.</p>
+      <div class="btn-group" data-reveal="2">
+        <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+        <a href="#usluge" class="btn btn-outline">Pogledaj usluge</a>
+      </div>
+    </section>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px">
-    <div data-reveal="0" style="border-top:1px solid rgba(241,238,230,0.25);padding-top:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .35s" style-hover="border-top:1px solid #9DB4A0">
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:#9DB4A0">01</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px">Piši mi</div>
-      <p style="margin:0;font-size:15px;line-height:1.7;color:#C9D2C6">Viber ili Instagram — napiši šta te muči i kad ti odgovara. Odgovaram isti dan.</p>
-    </div>
-    <div data-reveal="1" style="border-top:1px solid rgba(241,238,230,0.25);padding-top:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .35s" style-hover="border-top:1px solid #9DB4A0">
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:#9DB4A0">02</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px">Razgovor i procjena</div>
-      <p style="margin:0;font-size:15px;line-height:1.7;color:#C9D2C6">Prije tretmana prolazimo kroz sve — bol, navike, treninge. Tek tu biramo tretman, ne prije.</p>
-    </div>
-    <div data-reveal="2" style="border-top:1px solid rgba(241,238,230,0.25);padding-top:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .35s" style-hover="border-top:1px solid #9DB4A0">
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:#9DB4A0">03</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px">Tretman i plan</div>
-      <p style="margin:0;font-size:15px;line-height:1.7;color:#C9D2C6">Radimo ono što tvom tijelu tog dana treba — i dobiješ preporuku šta dalje i kad opet.</p>
-    </div>
+
+  <!-- ============ GALERIJA ============ -->
+  <div class="view" data-view="galerija">
+    <section class="wrap pagehead">
+      <span class="eyebrow" data-reveal="0">· Galerija</span>
+      <h1 data-reveal="1">Atmosfera <em class="accent">govori sama</em>.</h1>
+      <p data-reveal="2">Studio, detalji i mir prije nego što počnemo. Fotografije su privremene — uskoro stižu prave iz studija.</p>
+    </section>
+
+    <section class="wrap section--tight" style="padding-top:12px">
+      <div class="gallery">
+        <figure class="gallery-item" data-reveal="0"><img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=900&auto=format&fit=crop" alt="Studio" onerror="this.onerror=null;this.src='https://picsum.photos/seed/g1/800/1000?grayscale'"><figcaption class="cap">Studio · Trebinje</figcaption></figure>
+        <figure class="gallery-item" data-reveal="1"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=900&auto=format&fit=crop" alt="Terapijska masaža" onerror="this.onerror=null;this.src='https://picsum.photos/seed/g3/800/1000?grayscale'"><figcaption class="cap">Terapijska masaža</figcaption></figure>
+        <figure class="gallery-item" data-reveal="2"><img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=900&auto=format&fit=crop" alt="Vulkansko kamenje" onerror="this.onerror=null;this.src='https://picsum.photos/seed/g4/800/1000?grayscale'"><figcaption class="cap">Vulkansko kamenje</figcaption></figure>
+        <figure class="gallery-item" data-reveal="0"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=900&auto=format&fit=crop" alt="Wellness" onerror="this.onerror=null;this.src='https://picsum.photos/seed/g5/800/1000?grayscale'"><figcaption class="cap">Mir prije termina</figcaption></figure>
+        <figure class="gallery-item" data-reveal="1"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=900&auto=format&fit=crop" alt="Priprema" onerror="this.onerror=null;this.src='https://picsum.photos/seed/g2/800/1000?grayscale'"><figcaption class="cap">Priprema i detalji</figcaption></figure>
+        <figure class="gallery-item" data-reveal="2"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=900&auto=format&fit=crop" alt="Relax" onerror="this.onerror=null;this.src='https://picsum.photos/seed/g6/800/1000?grayscale'"><figcaption class="cap">Relax</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="band-soft">
+      <div class="wrap section cta-band">
+        <h2 data-reveal="0">Sljedeća fotografija <em class="accent">može biti tvoj mir</em>.</h2>
+        <p class="lead" data-reveal="1" style="text-align:center">Rezerviši svoj termin — javi se i biramo šta ti tijelu treba.</p>
+        <div class="btn-group" data-reveal="2">
+          <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+          <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" class="btn btn-outline">Instagram ↗</a>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
-<sc-if value="{{ prikaziRecenzije }}" hint-placeholder-val="{{ true }}">
-<section style="background:#EFEAE0;padding:84px 40px">
-  <div style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#8A9184;margin-bottom:48px" data-reveal="0">· Iskustva klijenata</div>
-  <div style="display:flex;flex-direction:column;gap:52px">
-    <figure data-reveal="0" style="margin:0;max-width:760px;display:flex;flex-direction:column;gap:14px">
-      <blockquote style="margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.4vw,30px);line-height:1.35;font-weight:500"><em style="color:#6F8877">„</em>Godinama sam nosila bol u ramenima kao dio sebe. Poslije trećeg tretmana kod Maje — prvi put spavam cijelu noć.<em style="color:#6F8877">“</em></blockquote>
-      <figcaption style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#8A9184">Jelena · Trebinje</figcaption>
-    </figure>
-    <figure data-reveal="0" style="margin:0;max-width:760px;align-self:flex-end;text-align:right;display:flex;flex-direction:column;gap:14px">
-      <blockquote style="margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.4vw,30px);line-height:1.35;font-weight:500"><em style="color:#6F8877">„</em>Poslije priprema mišići su mi bili kao kamen. Sportska masaža kod Maje vratila me na teren za tri dana.<em style="color:#6F8877">“</em></blockquote>
-      <figcaption style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#8A9184">Nikola · rekreativac</figcaption>
-    </figure>
-    <figure data-reveal="0" style="margin:0;max-width:760px;display:flex;flex-direction:column;gap:14px">
-      <blockquote style="margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.4vw,30px);line-height:1.35;font-weight:500"><em style="color:#6F8877">„</em>Na hidžamu sam došla skeptična. Otišla sam lakša — i vratila se već dvaput.<em style="color:#6F8877">“</em></blockquote>
-      <figcaption style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#8A9184">S. M. · Trebinje</figcaption>
-    </figure>
+
+  <!-- ============ KONTAKT ============ -->
+  <div class="view" data-view="kontakt">
+    <section class="wrap pagehead">
+      <span class="eyebrow" data-reveal="0">· Kontakt</span>
+      <h1 data-reveal="1">Sve ide <em class="accent">porukom</em>.</h1>
+      <p data-reveal="2">Napiši mi šta te muči i kad ti odgovara — odgovaram isti dan i dogovaramo termin. Bez formulara i čekanja.</p>
+    </section>
+
+    <section class="wrap section--tight">
+      <div class="contact">
+        <div class="contact-card" data-reveal="0">
+          <div class="contact-row"><span class="ic">☎</span><div><div class="k">Telefon <span style="text-transform:none;letter-spacing:0">· klikni da kopiraš</span></div><span class="v copy-phone" data-copy="066366217" role="button" tabindex="0" title="Klikni da kopiraš broj">066 / 366 - 217</span></div></div>
+          <div class="contact-row"><span class="ic">✉</span><div><div class="k">Viber</div><a class="v" href="viber://chat?number=%2B38766366217">Pošalji Viber poruku</a></div></div>
+          <div class="contact-row"><span class="ic">◎</span><div><div class="k">Instagram</div><a class="v" href="https://instagram.com/fizio_masaze_hidzama_trebinje">@fizio_masaze_hidzama_trebinje</a></div></div>
+          <div class="contact-row"><span class="ic">⌖</span><div><div class="k">Lokacija</div><div class="v">Trebinje · Republika Srpska, BiH</div></div></div>
+          <div class="contact-row"><span class="ic">🕑</span><div><div class="k">Termini</div><div class="v">Po dogovoru — svaki dan</div></div></div>
+        </div>
+        <div class="prose" data-reveal="1">
+          <h2>Zakaži u dva koraka</h2>
+          <p><strong>1.</strong> Piši mi na Viber ili Instagram i ukratko opiši šta te muči (bol, trening, umor, želja za opuštanjem).</p>
+          <p><strong>2.</strong> Predložim tretman i termin koji ti odgovara. Dolaziš, radimo procjenu, pa tretman.</p>
+          <div class="btn-group" style="justify-content:flex-start;margin-top:6px">
+            <a href="viber://chat?number=%2B38766366217" class="btn btn-primary">Otvori Viber ↗</a>
+            <button type="button" class="btn btn-outline copy-phone" data-copy="066366217">Kopiraj broj 066 366 217</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="map" data-reveal="2">
+        <div class="map-bar">
+          <span class="k">Trebinje</span>
+          <span class="hint">Okvirna lokacija — tačnu adresu šaljem uz potvrdu termina.</span>
+        </div>
+        <iframe title="Lokacija — Trebinje" src="https://www.google.com/maps?q=Trg%20slobode%20Trebinje&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <section class="band-soft">
+      <div class="wrap section">
+        <div class="eyebrow" data-reveal="0">· Česta pitanja</div>
+        <h2 data-reveal="1" style="margin-top:10px">Prije nego pišeš</h2>
+        <div class="faq" data-reveal="1">
+          <details class="faq-item" open><summary>Kako zakazujem termin? <span class="plus">+</span></summary><div class="answer">Najbrže preko Vibera ili Instagram poruke. Napišeš šta te muči i kad ti odgovara, a ja potvrdim termin. Broj možeš i kopirati klikom iznad.</div></details>
+          <details class="faq-item"><summary>Koliko traje tretman? <span class="plus">+</span></summary><div class="answer">Zavisi od usluge — od 30 minuta (masaža stopala) do 75 minuta (vulkansko kamenje). Tačno trajanje dogovaramo prema tvojim potrebama.</div></details>
+          <details class="faq-item"><summary>Kako se određuje cijena? <span class="plus">+</span></summary><div class="answer">Cijene u cjenovniku su okvirne i počinju od navedenog iznosa. Konačna zavisi od trajanja i broja regija koje radimo. Sve dogovaramo unaprijed.</div></details>
+          <details class="faq-item"><summary>Trebam li nešto ponijeti ili pripremiti? <span class="plus">+</span></summary><div class="answer">Ne. Dođi opušten i u udobnoj odjeći. Ako je u pitanju hidžama, o pripremi ti kažem unaprijed kroz poruku.</div></details>
+          <details class="faq-item"><summary>Radiš li vikendom? <span class="plus">+</span></summary><div class="answer">Termini su po dogovoru, svaki dan. Javi mi kad ti odgovara pa nađemo slobodan termin.</div></details>
+          <details class="faq-item"><summary>Kako se plaća? <span class="plus">+</span></summary><div class="answer">Gotovinom, na licu mjesta nakon tretmana.</div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section cta-band">
+      <h2 data-reveal="0">Spreman/na kad i ti <em class="accent">budeš</em>.</h2>
+      <p class="lead" data-reveal="1" style="text-align:center">Jedna poruka i termin je tu. Vidimo se u Trebinju.</p>
+      <div class="btn-group" data-reveal="2">
+        <a href="viber://chat?number=%2B38766366217" class="btn btn-primary">Otvori Viber ↗</a>
+        <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" class="btn btn-outline">Instagram ↗</a>
+      </div>
+    </section>
   </div>
-</section>
-</sc-if>
-<section style="padding:96px 40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:26px">
-  <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,3.6vw,50px);line-height:1.12;max-width:820px" data-reveal="0">Tijelo ti već zna <em style="color:#6F8877">zašto si ovdje</em>.</h2>
-  <p style="margin:0;font-size:17px;color:#5A6459" data-reveal="1">Termin dogovaramo porukom — javi se, odgovaram brzo.</p>
-  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center" data-reveal="2">
-    <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#6F8877;color:#F7F5EF;padding:15px 28px;border-radius:999px;font-size:16px;transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s" style-hover="background:#3C4A40;color:#F7F5EF;transform:translateY(-3px);box-shadow:0 14px 28px rgba(46,56,48,0.18)">Viber · 066 366 217</a>
-    <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" style="text-decoration:none;border:1px solid #C9C2B2;padding:14px 28px;border-radius:999px;font-size:16px;transition:background .35s,transform .35s cubic-bezier(.22,1,.36,1)" style-hover="background:#EFEAE0;transform:translateY(-3px)">Instagram ↗</a>
-  </div>
-</section>
-<footer style="background:#2E3830;color:#F1EEE6;padding:72px 40px 32px;display:flex;flex-direction:column;gap:52px">
-  <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.7fr) minmax(0,0.9fr) minmax(0,0.9fr);gap:44px">
-    <div style="display:flex;flex-direction:column;gap:22px;align-items:flex-start">
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,2.6vw,38px);line-height:1.15">Tijelo pamti sve.<br><em style="color:#9DB4A0">Pomozi mu da zaboravi.</em></div>
-      <a href="viber://chat?number=%2B38766366217" style="text-decoration:none;background:#F1EEE6;color:#2E3830;padding:13px 26px;border-radius:999px;font-size:15px;transition:background .3s,transform .3s" style-hover="background:#9DB4A0;color:#2E3830;transform:translateY(-2px)">Zakaži termin ↗</a>
+
+</main>
+
+<!-- FOOTER (zajednički) -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="col">
+        <div class="big">Tijelo pamti sve.<br><em>Pomozi mu da zaboravi.</em></div>
+        <a href="#kontakt" class="btn btn-light" style="align-self:flex-start;width:auto">Zakaži termin ↗</a>
+      </div>
+      <div class="col">
+        <h4>Stranice</h4>
+        <a href="#home">Početna</a>
+        <a href="#usluge">Usluge i cjenovnik</a>
+        <a href="#o-maji">O Maji</a>
+        <a href="#galerija">Galerija</a>
+        <a href="#kontakt">Kontakt i FAQ</a>
+      </div>
+      <div class="col">
+        <h4>Tretmani</h4>
+        <a href="#usluge">Medicinsko-terapijska masaža</a>
+        <a href="#usluge">Relax masaža</a>
+        <a href="#usluge">Sportska masaža</a>
+        <a href="#usluge">Vulkansko kamenje</a>
+        <a href="#usluge">Hidžama</a>
+      </div>
+      <div class="col">
+        <h4>Kontakt</h4>
+        <span class="copy-phone" data-copy="066366217" role="button" tabindex="0" title="Klikni da kopiraš broj" style="cursor:pointer">066 / 366 - 217</span>
+        <a href="viber://chat?number=%2B38766366217">Viber poruka</a>
+        <a href="https://instagram.com/fizio_masaze_hidzama_trebinje">Instagram DM</a>
+        <span class="muted">Trebinje · Republika Srpska, BiH</span>
+        <span class="muted">Termini po dogovoru — svaki dan</span>
+      </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:11px">
-      <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#8C948A;margin-bottom:6px">Stranice</div>
-      <a href="index.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Početna</a>
-      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Usluge i cjenovnik</a>
-      <a href="O-Maji.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">O Maji</a>
-      <a href="Galerija.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Galerija</a>
-      <a href="Kontakt.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Kontakt i FAQ</a>
+    <div class="footer-bottom">
+      <span class="muted">© <span data-year>2026</span> Fizio masaže &amp; hidžama · Maja Ratković</span>
+      <span class="sig">Vidimo se u Trebinju.</span>
     </div>
-    <div style="display:flex;flex-direction:column;gap:11px">
-      <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#8C948A;margin-bottom:6px">Tretmani</div>
-      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Medicinsko-terapijska masaža</a>
-      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Relax masaža</a>
-      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Sportska masaža</a>
-      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Masaža vulkanskim kamenjem</a>
-      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Masaža stopala</a>
-      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Anticelulit masaža</a>
-      <a href="Usluge.dc.html" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Hidžama</a>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:11px">
-      <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#8C948A;margin-bottom:6px">Kontakt</div>
-      <a href="tel:+38766366217" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">066 / 366 - 217</a>
-      <a href="viber://chat?number=%2B38766366217" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Viber poruka</a>
-      <a href="https://instagram.com/fizio_masaze_hidzama_trebinje" style="color:#F1EEE6;text-decoration:none;font-size:15px;transition:color .25s,padding .25s" style-hover="color:#9DB4A0;padding-left:4px">Instagram DM</a>
-      <span style="color:#8C948A;font-size:14px">Trebinje · Republika Srpska, BiH</span>
-      <span style="color:#8C948A;font-size:14px">Termini po dogovoru — svaki dan</span>
-    </div>
-  </div>
-  <div style="border-top:1px solid rgba(241,238,230,0.16);padding-top:22px;display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap">
-    <span style="font-size:13px;color:#8C948A">© 2026 Fizio masaže &amp; hidžama · Maja Ratković</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9DB4A0">Vidimo se u Trebinju.</span>
   </div>
 </footer>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;prikaziRecenzije&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sekcije&quot;},&quot;brzinaTrake&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:30,&quot;min&quot;:8,&quot;max&quot;:60,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Traka&quot;}}">
-class Component extends DCLogic {
-  componentDidMount() {
-    const els = Array.from(document.querySelectorAll('[data-reveal]'));
-    if (!els.length) return;
-    this._orig = new Map();
-    els.forEach(el => {
-      this._orig.set(el, {tr: el.style.transition, tf: el.style.transform});
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(26px)';
-      el.style.transition = 'opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)';
+
+<script>
+(function(){
+  "use strict";
+  var views = {};
+  document.querySelectorAll("[data-view]").forEach(function(v){ views[v.getAttribute("data-view")] = v; });
+  var current = null;
+  var curtain = document.getElementById("curtain");
+  var toast = document.getElementById("toast");
+  var burger = document.querySelector(".burger");
+  var menu = document.querySelector(".mobile-menu");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function revealIn(view){
+    view.querySelectorAll("[data-reveal]").forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight * 0.94){
+        var d = (parseInt(el.getAttribute("data-reveal"),10)||0) * 90;
+        setTimeout(function(){ el.classList.add("in"); }, d);
+      }
     });
-    this._io = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (!en.isIntersecting) return;
-        const el = en.target;
-        this._io.unobserve(el);
-        const d = (parseInt(el.dataset.reveal, 10) || 0) * 110;
-        setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, d);
-        setTimeout(() => {
-          const o = this._orig.get(el) || {tr: '', tf: ''};
-          el.style.transition = o.tr; el.style.transform = o.tf; el.style.opacity = '';
-        }, d + 950);
+  }
+
+  function setActiveNav(name){
+    document.querySelectorAll("[data-nav]").forEach(function(a){
+      a.classList.toggle("active", a.getAttribute("data-nav") === name);
+    });
+  }
+
+  function swapTo(target){
+    if(current){ current.classList.remove("active"); }
+    window.scrollTo(0,0);
+    target.classList.add("active");
+    requestAnimationFrame(function(){ revealIn(target); });
+    current = target;
+  }
+
+  function show(name){
+    var target = views[name] || views.home;
+    if(target === current){ closeMenu(); return; }
+    setActiveNav(name);
+    closeMenu();
+
+    if(reduce){ swapTo(target); return; }
+
+    if(!current){
+      // prvi ulazak — zavjesa je već preko, samo je podignemo
+      swapTo(target);
+      curtain.classList.remove("cover");
+      void curtain.offsetWidth;
+      curtain.classList.add("reveal");
+      return;
+    }
+
+    // spusti zavjesu (logo se "učitava"), zamijeni stranicu ispod, pa podigni
+    curtain.classList.remove("reveal");
+    void curtain.offsetWidth;
+    curtain.classList.add("cover");
+    setTimeout(function(){
+      swapTo(target);
+      setTimeout(function(){
+        curtain.classList.remove("cover");
+        void curtain.offsetWidth;
+        curtain.classList.add("reveal");
+      }, 280);
+    }, 500);
+  }
+
+  function closeMenu(){
+    if(menu){ menu.classList.remove("open"); }
+    if(burger){ burger.classList.remove("open"); burger.setAttribute("aria-expanded","false"); }
+  }
+
+  function route(){
+    var name = (location.hash.replace(/^#/, "") || "home");
+    if(!views[name]) name = "home";
+    show(name);
+  }
+
+  /* ---- Kopiranje broja telefona ---- */
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function(){ toast.classList.remove("show"); }, 1700);
+  }
+  function copyText(text){
+    function done(){ showToast("Broj kopiran ✓"); }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      try{ document.execCommand("copy"); }catch(e){}
+      document.body.removeChild(ta); done();
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(fallback);
+    } else { fallback(); }
+  }
+  document.addEventListener("click", function(e){
+    var el = e.target.closest("[data-copy]");
+    if(el){ e.preventDefault(); copyText(el.getAttribute("data-copy")); }
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key !== "Enter" && e.key !== " ") return;
+    var el = e.target.closest && e.target.closest("[data-copy]");
+    if(el){ e.preventDefault(); copyText(el.getAttribute("data-copy")); }
+  });
+
+  /* ---- Scroll-reveal observer ---- */
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var el = en.target;
+        var d = (parseInt(el.getAttribute("data-reveal"),10)||0) * 90;
+        setTimeout(function(){ el.classList.add("in"); }, d);
+        io.unobserve(el);
       });
-    }, {threshold: 0.1, rootMargin: '0px 0px -8% 0px'});
-    els.forEach(el => this._io.observe(el));
+    }, {threshold:0.12, rootMargin:"0px 0px -6% 0px"});
+    document.querySelectorAll("[data-reveal]").forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll("[data-reveal]").forEach(function(el){ el.classList.add("in"); });
   }
-  componentWillUnmount() { if (this._io) this._io.disconnect(); }
-  renderVals() {
-    const speed = this.props.brzinaTrake ?? 30;
-    const items = ['Medicinsko-terapijske masaže','Relax masaže','Sportske masaže','Vulkansko kamenje','Masaža stopala','Anticelulit masaže','Hidžama'];
-    const seq = items.concat(items).map((t, i) => React.createElement(React.Fragment, {key: i},
-      React.createElement('span', {style: {fontFamily: "'Cormorant Garamond',serif", fontSize: '21px', fontStyle: i % 2 ? 'italic' : 'normal', color: '#F1EEE6'}}, t),
-      React.createElement('span', {style: {width: '6px', height: '6px', borderRadius: '50%', background: '#9DB4A0', flex: 'none'}})));
-    const marquee = React.createElement('div', {style: {display: 'flex', alignItems: 'center', gap: '32px', paddingLeft: '32px', whiteSpace: 'nowrap', width: 'max-content', animation: 'marq ' + speed + 's linear infinite'}}, seq);
-    const badge = React.createElement('div', {style: {position: 'relative', width: '140px', height: '140px'}},
-      React.createElement('svg', {viewBox: '0 0 200 200', width: '140', height: '140', style: {animation: 'spin 26s linear infinite', display: 'block'}},
-        React.createElement('defs', null, React.createElement('path', {id: 'bcirc', d: 'M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0'})),
-        React.createElement('text', {style: {fontSize: '16px', letterSpacing: '3px', fill: '#3C4A40', fontFamily: "'Figtree',sans-serif", fontWeight: 600}},
-          React.createElement('textPath', {href: '#bcirc'}, 'ZAKAŽI TERMIN · VIBER 066 366 217 · '))),
-      React.createElement('div', {style: {position: 'absolute', inset: '0', display: 'flex', alignItems: 'center', justifyContent: 'center'}},
-        React.createElement('div', {style: {width: '52px', height: '52px', borderRadius: '50%', background: '#6F8877', color: '#F7F5EF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', boxShadow: '0 8px 20px rgba(46,56,48,0.2)'}}, '↗')));
-    return {marquee, badge, prikaziRecenzije: this.props.prikaziRecenzije ?? true};
+
+  if(burger && menu){
+    burger.addEventListener("click", function(){
+      var open = menu.classList.toggle("open");
+      burger.classList.toggle("open", open);
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
   }
-}
+
+  document.querySelectorAll("[data-year]").forEach(function(el){ el.textContent = new Date().getFullYear(); });
+
+  window.addEventListener("hashchange", route);
+  route();
+})();
 </script>
 </body>
 </html>
