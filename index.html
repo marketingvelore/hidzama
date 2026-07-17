@@ -29,10 +29,10 @@ a:hover{color:var(--sage)}
 ::selection{background:var(--sage);color:var(--bone)}
 
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 40px}
-.section{padding:88px 0}
-.section--tight{padding:64px 0}
-.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1.08}
+.section{padding-top:88px;padding-bottom:88px}
+.section--tight{padding-top:64px;padding-bottom:64px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1.08;overflow-wrap:break-word}
 h1{font-size:clamp(40px,5vw,70px)}
 h2{font-size:clamp(28px,3.4vw,46px);line-height:1.12}
 h3{font-size:clamp(20px,2vw,26px)}
@@ -104,7 +104,7 @@ em.accent{color:var(--sage);font-style:italic}
 @keyframes viewIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
 /* Hero */
-.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding:60px 0 84px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding-top:60px;padding-bottom:84px}
 .hero-text{display:flex;flex-direction:column;gap:24px}
 .hero-media{position:relative;justify-self:end;width:min(410px,100%)}
 .hero-photo{height:460px;border-radius:210px 210px 26px 26px;overflow:hidden;background:var(--card);transition:transform .6s var(--ease),box-shadow .6s}
@@ -231,10 +231,10 @@ em.accent{color:var(--sage);font-style:italic}
 .btn-group{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 
 /* Page hero */
-.pagehead{padding:64px 0 40px;display:flex;flex-direction:column;gap:16px}
+.pagehead{padding-top:64px;padding-bottom:40px;display:flex;flex-direction:column;gap:16px}
 .pagehead h1{font-size:clamp(38px,4.4vw,60px)}
 .pagehead p{max-width:60ch;color:var(--ink-soft);font-size:17px;margin:0}
-.pagehead-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.9fr);gap:56px;align-items:center;padding:56px 0 44px}
+.pagehead-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.9fr);gap:56px;align-items:center;padding-top:56px;padding-bottom:44px}
 .pagehead-hero .ph-text{display:flex;flex-direction:column;gap:16px}
 .ph-media{justify-self:end;width:100%;max-width:430px;border-radius:24px;overflow:hidden;background:var(--card);aspect-ratio:4/5;max-height:450px}
 .ph-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
@@ -276,8 +276,8 @@ em.accent{color:var(--sage);font-style:italic}
 
 /* Responsive */
 @media (max-width:1000px){
-  .wrap{padding:0 28px}
-  .hero{grid-template-columns:1fr;gap:40px;padding:44px 0 64px}
+  .wrap{padding:0 38px}
+  .hero{grid-template-columns:1fr;gap:40px;padding-top:44px;padding-bottom:64px}
   .hero-media{justify-self:start;width:100%;max-width:420px}
   .intro{grid-template-columns:1fr;gap:30px}
   .intro-text{order:-1}
@@ -297,22 +297,33 @@ em.accent{color:var(--sage);font-style:italic}
   .nav-links{display:none}
   .burger{display:flex}
   .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wrap{padding:0 38px}
+  .eyebrow{font-size:12px;letter-spacing:.14em}
+  h1{font-size:clamp(32px,7vw,44px)}
+  .pagehead h1{font-size:clamp(30px,6.5vw,40px)}
+  h2{font-size:clamp(26px,5.5vw,34px)}
+  .intro-big{font-size:clamp(22px,4.6vw,28px);line-height:1.4}
+  .lead,.pagehead p,.pagehead-hero p,.prose p{font-size:16px}
 }
 @media (max-width:600px){
-  .wrap{padding:0 28px}
-  .section{padding:60px 0}
-  .section--tight{padding:44px 0}
-  .nav{padding:11px 20px}
-  .brand{font-size:19px;gap:9px}
-  .logo{width:36px;height:36px}
-  .hero{padding:60px 0 48px}
-  .pagehead{padding:64px 0 30px}
-  .pagehead-hero{padding:56px 0 30px}
-  .hero-photo{height:400px}
+  .wrap{padding:0 26px}
+  .section{padding-top:56px;padding-bottom:56px}
+  .section--tight{padding-top:40px;padding-bottom:40px}
+  .nav{padding:11px 22px}
+  .brand{font-size:18px;gap:9px}
+  .logo{width:34px;height:34px}
+  h1{font-size:33px;line-height:1.14}
+  h2{font-size:26px}
+  .pagehead h1{font-size:31px}
+  .intro-big{font-size:22px;line-height:1.4}
+  .hero{padding-top:44px;padding-bottom:44px}
+  .pagehead{padding-top:48px;padding-bottom:26px}
+  .pagehead-hero{padding-top:44px;padding-bottom:26px}
+  .hero-photo{height:380px}
+  .gallery{grid-template-columns:1fr;gap:16px}
   .badge{left:-6px;bottom:-16px;width:120px;height:120px}
   .badge svg{width:120px;height:120px}
   .cards{grid-template-columns:1fr}
-  .gallery{grid-template-columns:repeat(2,1fr);gap:12px}
   .footer-grid{grid-template-columns:1fr;gap:30px}
   .contact-card{padding:26px}
   .map iframe{height:320px}
